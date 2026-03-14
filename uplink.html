@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO | UPLINK</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body class="projects-page">
+    <div class="bg-vignette"></div>
+    <div class="hud-crosshair top-left"></div>
+    <div class="hud-crosshair top-right"></div>
+    <div class="hud-crosshair bottom-left"></div>
+    <div class="hud-crosshair bottom-right"></div>
+    <nav>
+        <div class="logo">PORTFOLIO_V1.0</div>
+        <div class="nav-links">
+            <a href="operations.html" class="back-link">BACK</a>
+            <a href="index.html" id="shutdown-btn">SHUTDOWN</a>
+        </div>
+    </nav>
+    <main class="project-container">
+        <header class="sub-page-header">
+            <h1 class="split-me">UPLINK</h1>
+        </header>
+        <div class="bold-profile-grid" style="grid-template-columns: 1fr;">
+            <div class="profile-intel">
+                
+                <div class="data-table">
+                    <div class="data-row" style="border-top: none;">
+                        <span class="data-label">01</span>
+                        <div class="data-value-group" style="text-align: left; margin-left: 0; flex-grow: 1;">
+                            <span class="data-value">DIRECT CONTACTS</span>
+                            <div style="margin-top: 10px;">
+                                <a href="mailto:vedantabandyopadhyay@gmail.com" class="data-sub-value" style="text-decoration: none; cursor: default; text-transform: lowercase;">vedantabandyopadhyay@gmail.com</a>
+                                <span class="data-sub-value" style="margin-top: 5px; display:block;">+91 90381 01994</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table">
+                    <div class="data-row" style="border-top: none;">
+                        <span class="data-label">02</span>
+                        <div class="data-value-group" style="text-align: left; margin-left: 0; flex-grow: 1;">
+                            <span class="data-value">INITIATE COMMUNICATION</span>
+                            
+                            <form id="uplink-form" class="uplink-form" action="https://formspree.io/f/xzdelkkb" method="POST">
+                                <div class="input-group">
+                                    <label for="name" class="input-label">IDENTITY [NAME]</label>
+                                    <input type="text" id="name" name="name" class="tech-input" required autocomplete="off">
+                                </div>
+                                <div class="input-group">
+                                    <label for="email" class="input-label">RETURN ADDRESS [EMAIL]</label>
+                                    <input type="email" id="email" name="email" class="tech-input" required autocomplete="off">
+                                </div>
+                                <div class="input-group">
+                                    <label for="message" class="input-label">DIRECTIVE [MESSAGE]</label>
+                                    <textarea id="message" name="message" class="tech-input" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="transmit-btn" id="transmit-btn" data-value="SEND_PACKET">SEND_PACKET</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
