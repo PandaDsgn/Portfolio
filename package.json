@@ -1,0 +1,25 @@
+{
+  "name": "vedanta-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "React + Vite + React Router port of the original static multi-page HTML/CSS site. Same visual design, same CSS (`src/index.css` is your original `style.css`, untouched), same page structure — now as client-side routed components instead of separate .html files.",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "vite.config.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.8"
+  }
+}
