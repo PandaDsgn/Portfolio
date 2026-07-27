@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "React + Vite + React Router port of the original static multi-page HTML/CSS site. Same visual design, same CSS (`src/index.css` is your original `style.css`, untouched), same page structure — now as client-side routed components instead of separate .html files.",
+  "homepage": "https://PandaDsgn.github.io/Portfolio",
   "license": "ISC",
   "author": "",
   "type": "module",
@@ -10,10 +11,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "gh-pages": "^6.3.0",
     "gsap": "^3.12.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
+    "gh-pages": "^6.3.0",
     "vite": "^5.4.8"
   }
 }
