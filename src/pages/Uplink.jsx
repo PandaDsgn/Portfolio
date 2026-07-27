@@ -33,7 +33,7 @@ export default function Uplink() {
   }
 
   const buttonLabel =
-    status === 'sending' ? 'TRANSMITTING...' : status === 'sent' ? 'PACKET_SENT ✓' : status === 'error' ? 'RETRY_SEND' : 'SEND_PACKET'
+    status === 'sending' ? 'SENDING...' : status === 'sent' ? 'SENT' : status === 'error' ? 'RETRY_SEND' : 'SEND'
 
   return (
     <PageShell>
@@ -64,7 +64,7 @@ export default function Uplink() {
             <div className="data-row" style={{ borderTop: 'none' }}>
               <span className="data-label">02</span>
               <div className="data-value-group" style={{ textAlign: 'left', marginLeft: 0, flexGrow: 1 }}>
-                <span className="data-value">INITIATE COMMUNICATION</span>
+                <span className="data-value">GET IN TOUCH</span>
 
                 <form id="uplink-form" className="uplink-form" onSubmit={handleSubmit}>
                   <div className="input-group">

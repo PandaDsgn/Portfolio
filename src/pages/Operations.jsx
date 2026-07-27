@@ -10,7 +10,7 @@ const CARDS = [
   { title: 'SKILLSETS', desc: 'LANGUAGES, TOOLS & FRAMEWORKS', to: '/skillsets' },
   { title: 'PROJECTS', desc: 'COMPILED BUILDS & CASE STUDIES', to: '/projects' },
   { title: 'NETWORK', desc: 'SOCIAL GRID AND EXTERNAL LINKS', to: '/network' },
-  { title: 'UPLINK', desc: 'DIRECT COMMUNICATION', to: '/uplink' },
+  { title: 'CONTACT', desc: 'DIRECT COMMUNICATION', to: '/uplink' },
 ]
 
 export default function Operations() {

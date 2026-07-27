@@ -69,7 +69,7 @@ export default function Home() {
     <>
       <HudChrome />
       <nav>
-        <div className="logo">PORTFOLIO_V1.0</div>
+        <div className="logo">PORTFOLIO</div>
       </nav>
       <main>
         <div className="hero-pin-wrapper" ref={wrapperRef}>
@@ -99,7 +99,7 @@ export default function Home() {
                   })
                 }}
               >
-                ACCESS_PROFILE
+                ENTER
               </button>
             </div>
           </section>
