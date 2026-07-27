@@ -37,14 +37,15 @@ const INTERNSHIP = {
   date: 'JUN 2025 — JUL 2025',
   org: 'Internship at IEM Newtown, IEDC',
   bullets: ['Optimized performance of tri-layer, lead-free, carbon-based perovskite solar cells using machine learning; authored a full technical report.'],
-  paper: '/assets/paper.pdf',
+  paper: 'assets/paper.pdf',
+  certificate: 'assets/Intern.pdf',
 }
 
 const CERTIFICATIONS = [
-  { name: 'Business Intelligence & Analytics', issuer: 'NPTEL, IIT Madras', date: "JUN '25" },
-  { name: 'Cloud Computing', issuer: 'NPTEL, IIT Kharagpur', date: "JUN '25" },
-  { name: 'Joy of Computing with Python', issuer: 'NPTEL, IIT Ropar', date: "NOV '24" },
-  { name: 'Introduction to IoT', issuer: 'Coursera, UC San Diego', date: "OCT '24" },
+  { name: 'Business Intelligence & Analytics', issuer: 'NPTEL, IIT Madras', date: "JUN '25", cert: 'assets/BIAA.pdf' },
+  { name: 'Cloud Computing', issuer: 'NPTEL, IIT Kharagpur', date: "JUN '25", cert: 'assets/CC.pdf' },
+  { name: 'Joy of Computing with Python', issuer: 'NPTEL, IIT Ropar', date: "NOV '24", cert: 'assets/JOCWP.pdf' },
+  { name: 'Introduction to IoT', issuer: 'Coursera, UC San Diego', date: "OCT '24", cert: 'assets/IoT.pdf' },
 ]
 
 const LEADERSHIP = [
@@ -106,7 +107,18 @@ function JobRow({ job }) {
                 className="data-sub-value"
                 style={{ color: 'var(--blue)', textDecoration: 'none', display: 'block', marginTop: 6, fontWeight: 900 }}
               >
-                [VIEW ↗]
+                [VIEW REPORT ↗]
+              </a>
+            )}
+            {job.certificate && (
+              <a
+                href={job.certificate}
+                target="_blank"
+                rel="noreferrer"
+                className="data-sub-value"
+                style={{ color: 'var(--blue)', textDecoration: 'none', display: 'block', marginTop: 6, fontWeight: 900 }}
+              >
+                [VIEW CERTIFICATE ↗]
               </a>
             )}
           </span>
@@ -138,7 +150,21 @@ export default function Experience() {
                 <span className="data-sub-value" style={{ lineHeight: 1.6 }}>
                   {CERTIFICATIONS.map((c) => (
                     <span key={c.name} style={{ display: 'block', marginTop: 6 }}>
-                      {c.name} <span className="sep">|</span> {c.issuer} <span className="sep">|</span> {c.date}
+                      <span style={{ color: '#fff' }}>{c.name}</span> <span className="sep">|</span> {c.issuer} <span className="sep">|</span> {c.date}
+                      {c.cert && (
+                        <>
+                          {' '}
+                          <span className="sep">|</span>{' '}
+                          <a
+                            href={c.cert}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{ color: 'var(--blue)', textDecoration: 'none', fontWeight: 900 }}
+                          >
+                            [VIEW ↗]
+                          </a>
+                        </>
+                      )}
                     </span>
                   ))}
                 </span>

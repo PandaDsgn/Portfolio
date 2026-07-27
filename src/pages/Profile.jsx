@@ -12,7 +12,7 @@ export default function Profile() {
 
       <div className="bold-profile-grid">
         <div className="profile-image-wrapper">
-          <img src="/assets/avatar.png" alt="PROFILE_PHOTO" />
+          <img src="assets/avatar.png" alt="PROFILE_PHOTO" />
         </div>
 
         <div className="profile-intel profile-page-table">
@@ -37,7 +37,7 @@ export default function Profile() {
           </p>
 
           <a
-            href="/assets/resume.pdf"
+            href="assets/resume.pdf"
             target="_blank"
             rel="noreferrer"
             style={{
