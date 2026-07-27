@@ -69,7 +69,7 @@ export default function Uplink() {
                 <form id="uplink-form" className="uplink-form" onSubmit={handleSubmit}>
                   <div className="input-group">
                     <label htmlFor="name" className="input-label">
-                      IDENTITY [NAME]
+                      NAME
                     </label>
                     <input
                       type="text"
@@ -84,7 +84,7 @@ export default function Uplink() {
                   </div>
                   <div className="input-group">
                     <label htmlFor="email" className="input-label">
-                      RETURN ADDRESS [EMAIL]
+                      RETURN EMAIL
                     </label>
                     <input
                       type="email"
@@ -99,7 +99,7 @@ export default function Uplink() {
                   </div>
                   <div className="input-group">
                     <label htmlFor="message" className="input-label">
-                      DIRECTIVE [MESSAGE]
+                      MESSAGE
                     </label>
                     <textarea
                       id="message"
