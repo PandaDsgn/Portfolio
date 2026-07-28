@@ -12,7 +12,7 @@ export default function Profile() {
 
       <div className="bold-profile-grid">
         <div className="profile-image-wrapper">
-          <img src="assets/avatar.png" alt="PROFILE_PHOTO" />
+          <img src="public/assets/avatar.png" alt="PROFILE_PHOTO" />
         </div>
 
         <div className="profile-intel profile-page-table">

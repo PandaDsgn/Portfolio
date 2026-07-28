@@ -8,7 +8,7 @@ const CARDS = [
   { title: 'PROFILE', desc: 'IDENTITY & EDUCATION', to: '/profile' },
   { title: 'EXPERIENCE', desc: 'JOB HISTORY & TIMELINE', to: '/experience' },
   { title: 'SKILLSETS', desc: 'LANGUAGES, TOOLS & FRAMEWORKS', to: '/skillsets' },
-  { title: 'PROJECTS', desc: 'COMPILED BUILDS & CASE STUDIES', to: '/projects' },
+  { title: 'PROJECTS &\nPUBLICATIONS', desc: 'COMPILED BUILDS & CASE STUDIES', to: '/projects' },
   { title: 'NETWORK', desc: 'SOCIAL GRID AND EXTERNAL LINKS', to: '/network' },
   { title: 'CONTACT', desc: 'DIRECT COMMUNICATION', to: '/uplink' },
 ]

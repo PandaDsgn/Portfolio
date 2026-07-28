@@ -37,15 +37,15 @@ const INTERNSHIP = {
   date: 'JUN 2025 — JUL 2025',
   org: 'Internship at IEM Newtown, IEDC',
   bullets: ['Optimized performance of tri-layer, lead-free, carbon-based perovskite solar cells using machine learning; authored a full technical report.'],
-  paper: 'assets/paper.pdf',
-  certificate: 'assets/Intern.pdf',
+  paper: 'public/assets/paper.pdf',
+  certificate: 'public/assets/Intern.pdf',
 }
 
 const CERTIFICATIONS = [
-  { name: 'Business Intelligence & Analytics', issuer: 'NPTEL, IIT Madras', date: "JUN '25", cert: 'assets/BIAA.pdf' },
-  { name: 'Cloud Computing', issuer: 'NPTEL, IIT Kharagpur', date: "JUN '25", cert: 'assets/CC.pdf' },
-  { name: 'Joy of Computing with Python', issuer: 'NPTEL, IIT Ropar', date: "NOV '24", cert: 'assets/JOCWP.pdf' },
-  { name: 'Introduction to IoT', issuer: 'Coursera, UC San Diego', date: "OCT '24", cert: 'assets/IoT.pdf' },
+  { name: 'Business Intelligence & Analytics', issuer: 'NPTEL, IIT Madras', date: "JUN '25", cert: 'public/assets/BIAA.pdf' },
+  { name: 'Cloud Computing', issuer: 'NPTEL, IIT Kharagpur', date: "JUN '25", cert: 'public/assets/CC.pdf' },
+  { name: 'Joy of Computing with Python', issuer: 'NPTEL, IIT Ropar', date: "NOV '24", cert: 'public/assets/JOCWP.pdf' },
+  { name: 'Introduction to IoT', issuer: 'Coursera, UC San Diego', date: "OCT '24", cert: 'public/assets/IoT.pdf' },
 ]
 
 const LEADERSHIP = [

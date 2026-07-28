@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
 /**
@@ -48,10 +48,15 @@ export default function SplitText({
 
   return (
     <Tag ref={ref} className={className} {...rest}>
-      {text.split('').map((ch, i) => (
-        <span className="char" key={i}>
-          {ch === ' ' ? '\u00A0' : ch}
-        </span>
+      {text.split('\n').map((line, li, lines) => (
+        <Fragment key={li}>
+          {line.split('').map((ch, i) => (
+            <span className="char" key={i}>
+              {ch === ' ' ? '\u00A0' : ch}
+            </span>
+          ))}
+          {li < lines.length - 1 && <br />}
+        </Fragment>
       ))}
     </Tag>
   )
