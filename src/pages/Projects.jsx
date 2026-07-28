@@ -1,6 +1,10 @@
 import PageShell from '../components/PageShell.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 
+// Resolves against Vite's base path so links work both on localhost (base "/")
+// and on GitHub Pages (base "/Portfolio/"). Always pass a path with no leading slash.
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`
+
 const PROJECTS = [
   {
     id: '01',
@@ -56,10 +60,10 @@ const PROJECTS = [
 const PUBLICATIONS = [
   {
     id: '01',
-    title: 'AgroGuard: A Novel IoT-Enabled Framework for Smart Crop Preservation in Grain Silos',
+    title: 'AGRO-GUARD',
     journal: 'Bentham Science Journal',
-    status: '[ONGOING]',
-    link: 'assets/Agro_Guard_Book_Chapter.pdf',
+    status: 'Yet to be published',
+    link: asset('assets/Agro_Guard_Book_Chapter.pdf'),
   },
 ]
 

@@ -1,6 +1,10 @@
 import PageShell from '../components/PageShell.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 
+// Resolves against Vite's base path so links work both on localhost (base "/")
+// and on GitHub Pages (base "/Portfolio/"). Always pass a path with no leading slash.
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`
+
 const JOBS = [
   {
     id: '01',
@@ -37,15 +41,15 @@ const INTERNSHIP = {
   date: 'JUN 2025 — JUL 2025',
   org: 'Internship at IEM Newtown, IEDC',
   bullets: ['Optimized performance of tri-layer, lead-free, carbon-based perovskite solar cells using machine learning; authored a full technical report.'],
-  paper: 'public/assets/paper.pdf',
-  certificate: 'public/assets/Intern.pdf',
+  paper: asset('assets/paper.pdf'),
+  certificate: asset('assets/Intern.pdf'),
 }
 
 const CERTIFICATIONS = [
-  { name: 'Business Intelligence & Analytics', issuer: 'NPTEL, IIT Madras', date: "JUN '25", cert: 'public/assets/BIAA.pdf' },
-  { name: 'Cloud Computing', issuer: 'NPTEL, IIT Kharagpur', date: "JUN '25", cert: 'public/assets/CC.pdf' },
-  { name: 'Joy of Computing with Python', issuer: 'NPTEL, IIT Ropar', date: "NOV '24", cert: 'public/assets/JOCWP.pdf' },
-  { name: 'Introduction to IoT', issuer: 'Coursera, UC San Diego', date: "OCT '24", cert: 'public/assets/IoT.pdf' },
+  { name: 'Business Intelligence & Analytics', issuer: 'NPTEL, IIT Madras', date: "JUN '25", cert: asset('assets/BIAA.pdf') },
+  { name: 'Cloud Computing', issuer: 'NPTEL, IIT Kharagpur', date: "JUN '25", cert: asset('assets/CC.pdf') },
+  { name: 'Joy of Computing with Python', issuer: 'NPTEL, IIT Ropar', date: "NOV '24", cert: asset('assets/TJOCWP.pdf') },
+  { name: 'Introduction to IoT', issuer: 'Coursera, UC San Diego', date: "OCT '24", cert: asset('assets/IoT.pdf') },
 ]
 
 const LEADERSHIP = [
