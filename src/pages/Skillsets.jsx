@@ -43,20 +43,26 @@ import { FaJava, FaAws } from 'react-icons/fa6'
 // color set here — their canonical color is pure/near-black, so they fall
 // back to black, which reads cleanly against the white circle.
 function SkillList({ items }) {
-  return items.map((item, i) => (
-    <Fragment key={item.name}>
-      <span className="skill-item">
-        {(item.icon || item.image) && (
-          <span className="skill-icon-badge">
-            {item.icon && <item.icon className="skill-icon" style={{ color: item.color || '#000' }} />}
-            {item.image && <img src={item.image} alt="" className="skill-icon" />}
-          </span>
-        )}
-        {item.name}
-      </span>
-      {i < items.length - 1 && <span className="sep">|</span>}
-    </Fragment>
-  ))
+  return items.map((item, i) => {
+    // A few source logos (Keyshot, Nuke, DaVinci) bake in their own circular
+    // padding, so at the standard 19px they read visibly smaller than every
+    // other logo's padding. Bump those specific ones up via item.size.
+    const sizeStyle = item.size ? { width: item.size, height: item.size } : undefined
+    return (
+      <Fragment key={item.name}>
+        <span className="skill-item">
+          {(item.icon || item.image) && (
+            <span className="skill-icon-badge">
+              {item.icon && <item.icon className="skill-icon" style={{ color: item.color || '#000', ...sizeStyle }} />}
+              {item.image && <img src={item.image} alt="" className="skill-icon" style={sizeStyle} />}
+            </span>
+          )}
+          {item.name}
+        </span>
+        {i < items.length - 1 && <span className="sep">|</span>}
+      </Fragment>
+    )
+  })
 }
 
 const GROUPS = [
@@ -87,7 +93,6 @@ const GROUPS = [
     items: [
       { name: 'React.js', icon: SiReact, color: '#61DAFB' },
       { name: 'Node.js', icon: SiNodedotjs, color: '#5FA04E' },
-      { name: 'Express.js', icon: SiExpress },
       { name: 'Flask', icon: SiFlask },
       { name: 'HTML', icon: SiHtml5, color: '#E34F26' },
       { name: 'CSS', icon: SiCss, color: '#1572B6' },
@@ -108,7 +113,7 @@ const GROUPS = [
     title: 'CLOUD, AUTH & DEVOPS',
     items: [
       { name: 'AWS', icon: FaAws, color: '#FF9900' },
-      { name: 'Firebase (Auth/Firestore)', icon: SiFirebase, color: '#DD2C00' },
+      { name: 'Firebase', icon: SiFirebase, color: '#DD2C00' },
       { name: 'Docker', icon: SiDocker, color: '#2496ED' },
       { name: 'Render', icon: SiRender },
       { name: 'GitHub Pages', icon: SiGithubpages },
@@ -143,17 +148,29 @@ const GROUPS = [
   },
   {
     id: '08',
-    title: 'CAD & 3D (FREELANCE DOMAIN)',
+    title: 'CAD & 3D',
     items: [
       { name: 'AutoCAD', image: 'assets/logos/autocad.svg' },
       { name: 'SolidWorks', image: 'assets/logos/solidworks.svg' },
       { name: 'Fusion 360', image: 'assets/logos/fusion.webp' },
-      { name: 'Blender3D', icon: SiBlender, color: '#E87D0D' },
+      { name: 'Blender', icon: SiBlender, color: '#E87D0D' },
       { name: 'Maya', image: 'assets/logos/maya.svg' },
       { name: '3ds Max', image: 'assets/logos/3ds-max.svg' },
       { name: 'V-Ray', image: 'assets/logos/vray.svg' },
       { name: 'Corona', image: 'assets/logos/corona.svg' },
-      { name: 'Keyshot', image: 'assets/logos/keyshot.svg' },
+      { name: 'Keyshot', image: 'assets/logos/keyshot.svg', size: 24 },
+    ],
+  },
+  {
+    id: '09',
+    title: 'CG and Post Production',
+    items: [
+      { name: 'Photoshop', image: 'assets/logos/Ps.webp' },
+      { name: 'After Effects', image: 'assets/logos/Ae.webp' },
+      { name: 'Premiere Pro', image: 'assets/logos/Pr.webp' },
+      { name: 'Illustrator', image: 'assets/logos/Ai.webp' },
+      { name: 'Nuke', image: 'assets/logos/Nuke.svg', size: 24 },
+      { name: 'DaVinci Resolve', image: 'assets/logos/Dv.png', size: 24 },
     ],
   },
 ]

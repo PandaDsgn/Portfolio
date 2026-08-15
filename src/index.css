@@ -45,9 +45,6 @@ body {
 .section-heading:not(:first-child) {
     margin-top: 20px;
 }
-.shutdown-mode {
-    color: var(--alert) !important;
-}
 
 /* Custom Grey Pipe Separator */
 .sep {
@@ -115,21 +112,11 @@ nav {
     z-index: 100;
     mix-blend-mode: exclusion;
     align-items: center;
-}
-.logo {
-    font-weight: 900;
-    letter-spacing: -0.02em;
-}
-
-.nav-links {
-    display: flex;
     gap: 20px;
 }
 
 /* --- UNIFIED ACCESS BUTTONS --- */
-.nav-links a,
-.transmit-btn,
-#enter-btn {
+.nav-btn {
     color: var(--text);
     text-decoration: none;
     font-size: 0.9rem;
@@ -146,18 +133,59 @@ nav {
     user-select: none;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 /* INTERACTION STATES */
-.nav-links a:hover,
-.nav-links a:active,
-.transmit-btn:hover,
-.transmit-btn:active,
-#enter-btn:hover,
-#enter-btn:active {
+.nav-btn:hover,
+.nav-btn:active {
     background-color: var(--text);
     color: var(--black);
     border-color: var(--text);
+}
+
+/* --- PERSISTENT SECTION TABS --- */
+.nav-tabs {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.nav-tabs::-webkit-scrollbar {
+    display: none;
+}
+.nav-tab {
+    flex-shrink: 0;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: 900;
+    display: inline-block;
+    border: 1px solid var(--blue);
+    padding: 10px 18px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: "Inter", sans-serif;
+    text-transform: uppercase;
+    user-select: none;
+    white-space: nowrap;
+}
+.nav-tab:hover {
+    background-color: var(--blue);
+    color: var(--black);
+}
+.nav-tab.active {
+    background-color: var(--blue);
+    color: var(--black);
+}
+@media (max-width: 700px) {
+    .nav-tab {
+        padding: 8px 12px;
+        font-size: 0.68rem;
+    }
 }
 
 /* --- HERO & HEADERS --- */
@@ -167,12 +195,13 @@ nav {
     -webkit-font-smoothing: antialiased;
 }
 
+/* --- HERO CONTAINER UPDATED --- */
 .hero-pin-wrapper {
     height: 180vh;
     width: 100%;
+    position: relative;
 }
 
-/* --- HERO CONTAINER UPDATED --- */
 .hero {
     height: 100vh;
     display: flex;
@@ -181,8 +210,7 @@ nav {
     align-items: flex-start;
     padding-left: 5%;
     padding-right: 5%;
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100%;
 }
 
@@ -250,21 +278,6 @@ nav {
     white-space: nowrap;
     flex-shrink: 1;
     max-width: 85%; /* Ensures text leaves room for the lines */
-}
-
-.btn-container {
-    margin-top: 4vw;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-}
-#enter-btn {
-    opacity: 0;
-    transform: translateY(30px);
-    padding: 18px 50px;
-    letter-spacing: 4px;
 }
 
 /* --- SCROLL DOWN INDICATOR --- */
@@ -627,46 +640,95 @@ nav {
     filter: drop-shadow(0 0 0.4px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 0.4px rgba(0, 0, 0, 0.55));
 }
 
-/* --- DASHBOARD GRID --- */
-.grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+/* --- JOB ROW WITH ORG LOGO (LinkedIn-style: circle on the left, sized as
+   a fixed reference, divider spans the full block height including the
+   bullets, everything else sits to the right of the divider) --- */
+.job-row-with-logo {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
 }
-@media (min-width: 900px) {
-    .grid-layout {
-        grid-template-columns: repeat(3, 1fr);
+.job-org-logo-badge {
+    width: 84px;
+    height: 84px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.job-org-logo {
+    width: 88%;
+    height: 88%;
+    object-fit: contain;
+}
+.job-org-logo-badge.sm {
+    width: 54px;
+    height: 54px;
+}
+@media (max-width: 700px) {
+    .job-row-with-logo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .job-org-logo-badge {
+        width: 64px;
+        height: 64px;
+    }
+    .job-org-logo-badge.sm {
+        width: 48px;
+        height: 48px;
+    }
+    .job-row-with-logo .project-divider {
+        display: none;
     }
 }
 
-.card {
-    background: var(--black);
-    padding: 30px;
-    position: relative;
-    aspect-ratio: 16/9;
+/* --- DASHBOARD LIST --- */
+.grid-layout {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    border-top: 1px solid var(--line);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 34px 60px 34px 0;
+    border-bottom: 1px solid var(--line);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
 }
+@media (min-width: 700px) {
+    .card {
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+    }
+}
 .card:hover {
-    border-color: var(--text);
+    background: rgba(255, 255, 255, 0.03);
 }
 .card h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     margin: 0;
     color: var(--text);
     z-index: 2;
     transition: all 0.3s ease;
-    margin-bottom: 10px;
     font-weight: 900;
+    text-align: left;
+}
+@media (min-width: 700px) {
+    .card h2 {
+        flex: 0 0 33%;
+    }
 }
 
 /* --- CARD DESCRIPTION FIXED --- */
@@ -677,21 +739,28 @@ nav {
     font-weight: 900; /* Fixed: set to bold to match site style */
     z-index: 2;
     margin: 0;
+    text-align: left;
     transition: all 0.3s ease;
 }
+@media (min-width: 700px) {
+    .card p {
+        flex: 1;
+        margin-left: 15%;
+    }
+}
 
-.card:hover h2 {
-    transform: translate(15px, -15px);
+.card:hover h2,
+.card:hover p {
+    transform: translateX(15px);
 }
 .card:hover p {
     color: var(--text);
-    transform: translate(15px, -15px);
 }
 .card::after {
     content: "↗";
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 34px;
+    right: 0;
     font-size: 1.5rem;
     color: var(--gray);
     transition: all 0.3s;
@@ -701,47 +770,7 @@ nav {
     transform: translate(5px, -5px);
 }
 
-/* --- FORMS --- */
-.uplink-form {
-    margin-top: 40px;
-    width: 100%;
-    max-width: 600px;
-}
-.input-group {
-    margin-bottom: 40px;
-    position: relative;
-}
-.input-label {
-    display: block;
-    color: var(--gray);
-    font-size: 0.8rem;
-    font-weight: 900;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-.tech-input {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--gray);
-    color: var(--text);
-    padding: 10px 0;
-    font-family: "Inter", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    outline: none;
-    transition: all 0.3s;
-    border-radius: 0;
-}
-.tech-input:focus {
-    border-bottom-color: var(--blue);
-    padding-left: 10px;
-    background: rgba(255, 255, 255, 0.02);
-}
-textarea.tech-input {
-    resize: vertical;
-    min-height: 100px;
-}
+/* --- LINKS --- */
 .tech-link {
     color: var(--text);
     text-decoration: none;
@@ -752,6 +781,22 @@ textarea.tech-input {
 .tech-link:hover {
     color: var(--blue);
 }
-.transmit-btn {
-    margin-top: 10px;
+
+/* --- SOCIAL ICON BUTTONS --- */
+.social-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    color: var(--text);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+.social-icon-link:hover {
+    color: var(--blue);
+    border-color: var(--blue);
+    transform: translateY(-2px);
 }

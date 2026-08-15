@@ -14,8 +14,8 @@ const PROJECTS = [
     link: 'pandadsgn.github.io/CodeJudge/',
     image: 'assets/HomePages/CodeJudge.png',
     bullets: [
-      'Built a Dockerized, multi-language (Python/C/C++/Java) code-execution sandbox with ulimit-capped resources and privilege-dropped execution, giving tuition students without personal computers a secure browser-based IDE to write and run code from any device.',
-      'Implemented a PostgreSQL-backed assignment judge with deadline-gated access, hidden test cases, and LeetCode-style verdicts, plus JWT/RBAC auth and automated student onboarding via a Google Form webhook and Resend transactional email',
+      'A Dockerized, multi-language (Python/C/C++/Java) code-execution sandbox with ulimit-capped resources and privilege-dropped execution, giving tuition students without personal computers a secure browser-based IDE to write and run code from any device.',
+      'Uses a PostgreSQL-backed assignment judge with deadline-gated access, hidden test cases, and LeetCode-style verdicts, plus JWT/RBAC auth and automated student onboarding via a Google Form webhook and Resend transactional email.',
     ],
     tech: 'React, Node.js, Express.js, PostgreSQL, Docker, JWT, Resend, Render, GitHub Page',
 
@@ -28,8 +28,8 @@ const PROJECTS = [
     link: 'pandadsgn.github.io/Infrastructure-Assassin-Production/',
     image: 'assets/HomePages/InfrastructureAssassin.png',
     bullets: [
-      'Built a multi-tier, RBAC-governed platform using PostgreSQL for persistent telemetry and Redis for session caching, with LISTEN/NOTIFY pub-sub over Server-Sent Events for real-time dashboard updates.',
-      'Integrated a cascaded LLM pipeline (Gemini API, batched to manage quota) for automated threat analysis, added Firebase Authentication, and shipped CI/CD to a multi-instance Render backend + GitHub Pages frontend.',
+      'A multi-tier, RBAC-governed platform using PostgreSQL for persistent telemetry and Redis for session caching, with LISTEN/NOTIFY pub-sub over Server-Sent Events for real-time dashboard updates.',
+      'Sports a cascaded LLM pipeline (Gemini -> Ollama -> Grok -> Fallback NLP using data on DB) for automated threat analysis, Firebase Authentication, and a shipped CI/CD to a multi-instance Render backend + GitHub Pages frontend.',
     ],
     tech: 'React, Node.js, PostgreSQL, Redis, Firebase, Gemini API, CI/CD, Render, GitHub Pages',
   },
@@ -42,9 +42,9 @@ const PROJECTS = [
     image: 'assets/HomePages/RestroCafe.png',
     bullets: [
       'Designed a full-stack restaurant management system with a React frontend and Node.js backend, including a RESTful API and database schema.',
-      'Integrated geo-location tracking, payment processing, and inventory management, along with a smart reservation management system.',
+      'Has OpenMaps for geolocation tracking, Razorpay for payment processing, and an inventory management system, along with a smart reservation management system.',
     ],
-    tech: 'Arduino, IoT sensors, Node.js, React, Render, Git/GitHub',
+    tech: 'Node.js, React, Render, Git/GitHub, Firebase',
   },
   {
     id: '04',
@@ -54,8 +54,8 @@ const PROJECTS = [
     link: 'pandadsgn.github.io/OccuNova/',
     image: 'assets/HomePages/OccuNova.png',
     bullets: [
-      'Designed a cascaded ResNet50 computer-vision pipeline with AI-driven UNet cropping to isolate optic-nerve regions from retinal fundus scans.',
-      'Built a scalable inference backend and React/Node.js frontend covering the full lifecycle from clinical data preprocessing to model training and deployment.',
+      'A cascaded ResNet50 computer-vision pipeline with an UNet cropping to isolate optic-nerve regions from retinal fundus scans. The dual layer allows for more accurate detections.',
+      'Trained on a massive dataset from multiple sources, and hosted on Render and GitHub Pages for the frontend and on Hugging Face for the backend.',
     ],
     tech: 'Python, CNNs, Computer Vision, Node.js, React, Git/GitHub',
   },
@@ -67,8 +67,8 @@ const PROJECTS = [
     link: 'pandadsgn.github.io/Agro-Guard/',
     image: 'assets/HomePages/AgroGuard.png',
     bullets: [
-      'Engineered an Arduino-based sensor pipeline (DHT11, HC-SR04, LDR) for continuous environmental telemetry capture in agricultural storage.',
-      'Built AI-driven analytics for grain storage management on a scalable backend deployed on Render, spanning hardware integration through cloud deployment.',
+      'An Arduino-based sensor pipeline (DHT11, HC-SR04, LDR) for continuous environmental telemetry capture and threat detction in agricultural silos.',
+      'Features an AI-driven analytics for smarter and more efficient grain storage management by detecting environmental threats and sensor anomalies in real-time and deciding for users.',
     ],
     tech: 'Arduino, IoT sensors, Node.js, React, Render, Git/GitHub',
   },
@@ -80,7 +80,7 @@ const PUBLICATIONS = [
     id: '01',
     title: 'AGRO-GUARD',
     journal: 'Bentham Science Journal',
-    status: 'Yet to be published',
+    status: 'Publication Pending',
     link: asset('assets/Agro_Guard_Book_Chapter.pdf'),
   },
 ]
@@ -159,7 +159,7 @@ export default function Projects() {
                   <span className="data-sub-value" style={{ lineHeight: 1.6 }}>
                     {pub.journal}
                     <br />
-                    <span style={{ display: 'block', marginTop: 6 }}>{pub.status}</span>
+                    <span style={{ display: 'block', marginTop: 6, color: 'var(--text)' }}>{pub.status}</span>
                     <a
                       href={pub.link}
                       target="_blank"

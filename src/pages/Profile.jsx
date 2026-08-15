@@ -1,7 +1,9 @@
 import PageShell from '../components/PageShell.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import SplitText from '../components/SplitText.jsx'
-import { FiMapPin } from 'react-icons/fi'
+import { FiMapPin, FiMail, FiPhone } from 'react-icons/fi'
+import { FaLinkedin } from 'react-icons/fa6'
+import { SiGithub, SiBehance, SiInstagram } from 'react-icons/si'
 
 export default function Profile() {
   return (
@@ -34,14 +36,89 @@ export default function Profile() {
           </div>
 
           <p className="bio-large" style={{ marginBottom: 40 }}>
-            I am a 21 year old tech enthusiast, currently pursuing a <strong>B.Tech in Electronics &amp; Communication Engineering</strong>.
+            I am a 21 year old tech enthusiast, currently pursuing a Bachelor's in <strong>Electronics &amp; Communication Engineering</strong>.
             <br />
             <br />
-            I enjoy working on multiple different domains of software development, including <strong>Full-Stack, Cloud-Deployed applications</strong> and <strong>IoT</strong> platforms. As an Electronics Engineer I also like working on <strong>Embedded Systems</strong>, and <strong>Low Power Systems</strong>.
+            I enjoy working on multiple different domains of software development, including <strong>Full-Stack, Cloud-Deployed applications</strong> and <strong>IoT</strong> platforms. As an Electronics Engineer I also like working on <strong>Embedded Systems</strong>, and <strong>Low Power Systems</strong>. Furthermore I enjoy practising <strong>competitive-programming</strong>.
             <br />
             <br />
-            Furthermore I enjoy practising <strong>competitive-programming.</strong> I also love cars and have always had a knack for <strong>Graphic Designing</strong>, which led me to have a professional career in <strong>Automotive Visualisation</strong> for nearly a decade where I worked with multiple clients as a freelancer as well as an employed artist as a <strong>3D Generalist and Environment Artist</strong>.
+            I also love cars and have always had a knack for <strong>Graphic Designing</strong>, which led me to have a professional career in <strong>Automotive Visualisation</strong> for nearly a decade where I worked with multiple clients as a freelancer as well as an employed artist as a <strong>3D Generalist and Environment Artist</strong>. I started back in High School during Covid lockdowns and got heavily invested.
+            <br />
+            <br />
+            I also lowkey hate cyberpunk styled AI Slop websites. So most of my projects and websites are kind of visually bland with a <strong>bold lettering</strong>, which is a noticeable style in my graphic design work as well.
           </p>
+
+          <div className="data-table">
+            <div className="data-row" style={{ borderTop: 'none' }}>
+              <span className="data-label">CONTACT</span>
+              <div className="data-value-group" style={{ display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'flex-end' }}>
+                <a
+                  href="mailto:vedantabandyopadhyay@gmail.com"
+                  className="tech-link"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    textTransform: 'lowercase',
+                    fontSize: '0.95rem',
+                  }}
+                >
+                  <FiMail size={16} />
+                  vedantabandyopadhyay@gmail.com
+                </a>
+                <a
+                  href="tel:+919038101994"
+                  className="tech-link"
+                  style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.95rem' }}
+                >
+                  <FiPhone size={16} />
+                  +91 90381 01994
+                </a>
+                <div style={{ display: 'flex', gap: 10, marginTop: 6 }}>
+                  <a
+                    href="https://www.linkedin.com/in/vedantabandyopadhyay/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-icon-link"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                  >
+                    <FaLinkedin size={17} />
+                  </a>
+                  <a
+                    href="https://github.com/PandaDsgn"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-icon-link"
+                    aria-label="GitHub"
+                    title="GitHub"
+                  >
+                    <SiGithub size={16} />
+                  </a>
+                  <a
+                    href="https://www.behance.net/panda_designz"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-icon-link"
+                    aria-label="Behance"
+                    title="Behance"
+                  >
+                    <SiBehance size={16} />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/panda._.designz"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-icon-link"
+                    aria-label="Instagram"
+                    title="Instagram"
+                  >
+                    <SiInstagram size={16} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div className="data-table">
             <div className="data-row" style={{ borderTop: 'none' }}>
