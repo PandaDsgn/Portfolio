@@ -12,6 +12,7 @@ const PROJECTS = [
     subtitle: 'Browser-Based Coding Classroom & Auto-Grading Platform',
     date: "JUL '26",
     link: 'pandadsgn.github.io/CodeJudge/',
+    image: 'assets/HomePages/CodeJudge.png',
     bullets: [
       'Built a Dockerized, multi-language (Python/C/C++/Java) code-execution sandbox with ulimit-capped resources and privilege-dropped execution, giving tuition students without personal computers a secure browser-based IDE to write and run code from any device.',
       'Implemented a PostgreSQL-backed assignment judge with deadline-gated access, hidden test cases, and LeetCode-style verdicts, plus JWT/RBAC auth and automated student onboarding via a Google Form webhook and Resend transactional email',
@@ -25,6 +26,7 @@ const PROJECTS = [
     subtitle: 'AI-Driven Infrastructure Testing & Resilience Suite',
     date: "JUL '26",
     link: 'pandadsgn.github.io/Infrastructure-Assassin-Production/',
+    image: 'assets/HomePages/InfrastructureAssassin.png',
     bullets: [
       'Built a multi-tier, RBAC-governed platform using PostgreSQL for persistent telemetry and Redis for session caching, with LISTEN/NOTIFY pub-sub over Server-Sent Events for real-time dashboard updates.',
       'Integrated a cascaded LLM pipeline (Gemini API, batched to manage quota) for automated threat analysis, added Firebase Authentication, and shipped CI/CD to a multi-instance Render backend + GitHub Pages frontend.',
@@ -33,10 +35,24 @@ const PROJECTS = [
   },
   {
     id: '03',
+    title: 'Restro-cafe',
+    subtitle: 'Full Stack Restaurant Management System',
+    date: "JUN '26",
+    link: 'pandadsgn.github.io/restro-cafe/',
+    image: 'assets/HomePages/RestroCafe.png',
+    bullets: [
+      'Designed a full-stack restaurant management system with a React frontend and Node.js backend, including a RESTful API and database schema.',
+      'Integrated geo-location tracking, payment processing, and inventory management, along with a smart reservation management system.',
+    ],
+    tech: 'Arduino, IoT sensors, Node.js, React, Render, Git/GitHub',
+  },
+  {
+    id: '04',
     title: 'OCCUNOVA',
     subtitle: 'Deep Learning Diagnostic System for Glaucoma Detection',
     date: "JUN '26",
     link: 'pandadsgn.github.io/OccuNova/',
+    image: 'assets/HomePages/OccuNova.png',
     bullets: [
       'Designed a cascaded ResNet50 computer-vision pipeline with AI-driven UNet cropping to isolate optic-nerve regions from retinal fundus scans.',
       'Built a scalable inference backend and React/Node.js frontend covering the full lifecycle from clinical data preprocessing to model training and deployment.',
@@ -44,17 +60,19 @@ const PROJECTS = [
     tech: 'Python, CNNs, Computer Vision, Node.js, React, Git/GitHub',
   },
   {
-    id: '04',
+    id: '05',
     title: 'AGRO-GUARD',
     subtitle: 'IoT Crop & Grain-Silo Monitoring System',
     date: "FEB '26",
     link: 'pandadsgn.github.io/Agro-Guard/',
+    image: 'assets/HomePages/AgroGuard.png',
     bullets: [
       'Engineered an Arduino-based sensor pipeline (DHT11, HC-SR04, LDR) for continuous environmental telemetry capture in agricultural storage.',
       'Built AI-driven analytics for grain storage management on a scalable backend deployed on Render, spanning hardware integration through cloud deployment.',
     ],
     tech: 'Arduino, IoT sensors, Node.js, React, Render, Git/GitHub',
   },
+
 ]
 
 const PUBLICATIONS = [
@@ -79,46 +97,53 @@ export default function Projects() {
               <div className="data-row" style={{ borderTop: 'none' }}>
                 <span className="data-label">{p.id}</span>
                 <div className="data-value-group" style={{ textAlign: 'left', marginLeft: 0, flexGrow: 1 }}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'baseline',
-                      width: '100%',
-                      marginBottom: 5,
-                    }}
-                  >
-                    <span className="data-value">{p.title}</span>
-                    <span
-                      style={{
-                        fontWeight: 900,
-                        color: 'var(--text)',
-                        fontSize: '0.9rem',
-                        textAlign: 'right',
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      {p.date}
-                    </span>
-                  </div>
-                  <span className="data-sub-value" style={{ lineHeight: 1.6 }}>
-                    {p.subtitle}
-                    <br />
+                  <div className="project-row">
                     <a
                       href={`https://${p.link}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ color: 'var(--text)', textDecoration: 'underline', display: 'inline-block', marginTop: 6 }}
+                      className="project-thumb-link"
+                      aria-label={`Open ${p.title} project`}
                     >
-                      {p.link}
+                      <img src={asset(p.image)} alt={`${p.title} preview`} className="project-thumb" />
+                      <span className="project-thumb-overlay">VIEW PROJECT ↗</span>
                     </a>
-                    {p.bullets.map((b, i) => (
-                      <span key={`${p.id}-bullet-${i}`} style={{ color: 'var(--text)', display: 'block', marginTop: 6 }}>
-                        • {b}
+                    <div className="project-divider"></div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'baseline',
+                          width: '100%',
+                          marginBottom: 5,
+                        }}
+                      >
+                        <span className="data-value">{p.title}</span>
+                        <span
+                          style={{
+                            fontWeight: 900,
+                            color: 'var(--text)',
+                            fontSize: '0.9rem',
+                            textAlign: 'right',
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          {p.date}
+                        </span>
+                      </div>
+                      <span className="data-sub-value" style={{ lineHeight: 1.6 }}>
+                        {p.subtitle}
+                        <br />
+                        {p.bullets.map((b, i) => (
+                          <span key={`${p.id}-bullet-${i}`} style={{ color: 'var(--text)', display: 'block', marginTop: 6 }}>
+                            • {b}
+                          </span>
+                        ))}
+                        <span style={{ display: 'block', marginTop: 10 }}>Tech: {p.tech}</span>
                       </span>
-                    ))}
-                    <span style={{ display: 'block', marginTop: 10 }}>Tech: {p.tech}</span>
-                  </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -130,7 +155,7 @@ export default function Projects() {
               <div className="data-row" style={{ borderTop: 'none' }}>
                 <span className="data-label">{pub.id}</span>
                 <div className="data-value-group" style={{ textAlign: 'left', marginLeft: 0, flexGrow: 1 }}>
-                  <span className="data-value" style={{ color: '#fff' }}>{pub.title}</span>
+                  <span className="data-value" style={{ color: 'var(--text)' }}>{pub.title}</span>
                   <span className="data-sub-value" style={{ lineHeight: 1.6 }}>
                     {pub.journal}
                     <br />

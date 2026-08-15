@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import HudChrome from '../components/HudChrome.jsx'
 import NavBar from '../components/NavBar.jsx'
-import PageHeader from '../components/PageHeader.jsx'
-import SplitText from '../components/SplitText.jsx'
 
 const CARDS = [
   { title: 'PROFILE', desc: 'IDENTITY & EDUCATION', to: '/profile' },
@@ -21,12 +19,14 @@ export default function Operations() {
       <HudChrome />
       <NavBar showBack={false} />
       <main className="project-container">
-        <PageHeader text="MAIN MENU" />
+        <header className="sub-page-header">
+          <h1>MAIN MENU</h1>
+        </header>
         <section className="grid-layout">
           {CARDS.map((card) => (
             <div className="card" key={card.to} onClick={() => navigate(card.to)}>
-              <SplitText as="h2" text={card.title} className="split-me" />
-              <SplitText as="p" text={card.desc} className="split-me" />
+              <h2 style={{ whiteSpace: 'pre-line' }}>{card.title}</h2>
+              <p>{card.desc}</p>
             </div>
           ))}
         </section>

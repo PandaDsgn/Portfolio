@@ -10,7 +10,7 @@ const JOBS = [
     id: '01',
     role: '3D GENERALIST & ENVIRONMENT ARTIST',
     date: 'AUG 2025 — FEB 2026',
-    org: 'The AutoFocus Studio',
+    org: 'The AutoFocus Studio | Full Time',
     bullets: [
       'Delivered high-fidelity visualizations and technical artwork for studio projects and clients across environment design and generalist 3D workflows.',
       'Worked on the launch campaign for the Hyundai Creta N Line Knight Edition, creating 360° exterior imagery for the website.',
@@ -20,7 +20,7 @@ const JOBS = [
     id: '02',
     role: 'CO-LEAD',
     date: 'NOV 2022 — MAR 2025',
-    org: 'Ninja Fellowship',
+    org: 'Ninja Fellowship | Part Time',
     bullets: ['Led a team of 3D artists over 2+ years, coordinating delivery of visual assets for multiple brand engagements.'],
   },
   {
@@ -46,10 +46,38 @@ const INTERNSHIP = {
 }
 
 const CERTIFICATIONS = [
-  { name: 'Business Intelligence & Analytics', issuer: 'NPTEL, IIT Madras', date: "JUN '25", cert: asset('assets/BIAA.pdf') },
-  { name: 'Cloud Computing', issuer: 'NPTEL, IIT Kharagpur', date: "JUN '25", cert: asset('assets/CC.pdf') },
-  { name: 'Joy of Computing with Python', issuer: 'NPTEL, IIT Ropar', date: "NOV '24", cert: asset('assets/TJOCWP.pdf') },
-  { name: 'Introduction to IoT', issuer: 'Coursera, UC San Diego', date: "OCT '24", cert: asset('assets/IoT.pdf') },
+  {
+    id: '01',
+    name: 'Business Intelligence & Analytics',
+    issuer: 'NPTEL, IIT Madras',
+    date: "JUN '25",
+    cert: asset('assets/BIAA.pdf'),
+    image: asset('assets/CertPreviews/BIAA.png'),
+  },
+  {
+    id: '02',
+    name: 'Cloud Computing',
+    issuer: 'NPTEL, IIT Kharagpur',
+    date: "JUN '25",
+    cert: asset('assets/CC.pdf'),
+    image: asset('assets/CertPreviews/CC.png'),
+  },
+  {
+    id: '03',
+    name: 'Joy of Computing with Python',
+    issuer: 'NPTEL, IIT Ropar',
+    date: "NOV '24",
+    cert: asset('assets/TJOCWP.pdf'),
+    image: asset('assets/CertPreviews/TJOCWP.png'),
+  },
+  {
+    id: '04',
+    name: 'Introduction to IoT',
+    issuer: 'Coursera, UC San Diego',
+    date: "OCT '24",
+    cert: asset('assets/IoT.pdf'),
+    image: asset('assets/CertPreviews/IoT.png'),
+  },
 ]
 
 const LEADERSHIP = [
@@ -132,6 +160,50 @@ function JobRow({ job }) {
   )
 }
 
+function CertItem({ cert }) {
+  return (
+    <div className="cert-item">
+      <span className="data-label">{cert.id}</span>
+      <a
+        href={cert.cert}
+        target="_blank"
+        rel="noreferrer"
+        className="cert-thumb-link"
+        aria-label={`View ${cert.name} certificate`}
+      >
+        <img src={cert.image} alt={`${cert.name} certificate preview`} className="cert-thumb" />
+        <span className="cert-thumb-overlay">VIEW ↗</span>
+      </a>
+      <div className="project-divider"></div>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <span className="data-value" style={{ fontSize: '0.85rem', display: 'block', marginBottom: 3 }}>
+          {cert.name}
+        </span>
+        <span className="data-sub-value" style={{ fontSize: '0.78rem' }}>
+          {cert.issuer}
+        </span>
+        <span className="data-sub-value" style={{ fontSize: '0.72rem', display: 'block', marginTop: 2 }}>
+          {cert.date}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+function CertPairRow({ pair }) {
+  return (
+    <div className="data-table">
+      <div className="data-row" style={{ borderTop: 'none' }}>
+        <div className="cert-pair">
+          {pair.map((cert) => (
+            <CertItem cert={cert} key={cert.id} />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Experience() {
   return (
     <PageShell>
@@ -143,43 +215,21 @@ export default function Experience() {
             <JobRow job={job} key={job.id} />
           ))}
 
-          <p className="section-heading">INTERNSHIP & CERTIFICATIONS</p>
+          <p className="section-heading">INTERNSHIPS</p>
           <JobRow job={INTERNSHIP} />
 
-          <div className="data-table">
-            <div className="data-row" style={{ borderTop: 'none' }}>
-              <span className="data-label">02</span>
-              <div className="data-value-group" style={{ textAlign: 'left', marginLeft: 0, flexGrow: 1 }}>
-                <span className="data-value">CERTIFICATIONS</span>
-                <span className="data-sub-value" style={{ lineHeight: 1.6 }}>
-                  {CERTIFICATIONS.map((c) => (
-                    <span key={c.name} style={{ display: 'block', marginTop: 6 }}>
-                      <span style={{ color: '#fff' }}>{c.name}</span> <span className="sep">|</span> {c.issuer} <span className="sep">|</span> {c.date}
-                      {c.cert && (
-                        <>
-                          {' '}
-                          <span className="sep">|</span>{' '}
-                          <a
-                            href={c.cert}
-                            target="_blank"
-                            rel="noreferrer"
-                            style={{ color: 'var(--blue)', textDecoration: 'none', fontWeight: 900 }}
-                          >
-                            [VIEW ↗]
-                          </a>
-                        </>
-                      )}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            </div>
-          </div>
+          <p className="section-heading">CERTIFICATIONS</p>
+          {CERTIFICATIONS.reduce((rows, cert, i) => {
+            if (i % 2 === 0) rows.push([cert])
+            else rows[rows.length - 1].push(cert)
+            return rows
+          }, []).map((pair, i) => (
+            <CertPairRow pair={pair} key={i} />
+          ))}
 
           <p className="section-heading">LEADERSHIP & EXTRACURRICULAR</p>
           <div className="data-table">
-            <div className="data-row" style={{ borderTop: 'none', borderBottom: 'none' }}>
-              <span className="data-label">01</span>
+            <div className="data-row" style={{ borderTop: 'none' }}>
               <div className="data-value-group" style={{ textAlign: 'left', marginLeft: 0, flexGrow: 1 }}>
                 <span className="data-sub-value" style={{ lineHeight: 1.8 }}>
                   {LEADERSHIP.map((l) => (

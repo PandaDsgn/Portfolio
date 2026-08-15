@@ -29,7 +29,7 @@ export default function NavBar({ showBack = true }) {
 
   return (
     <nav>
-      <div className="logo">PORTFOLIO_V1.0</div>
+      <div className="logo">PORTFOLIO</div>
       <div className="nav-links">
         {showBack && (
           <a href="/operations" className="back-link" ref={backRef} onClick={handleBack}>

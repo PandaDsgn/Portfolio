@@ -24,6 +24,7 @@ export default function Home() {
   const lineRightRef = useRef(null)
   const lineLeftRef = useRef(null)
   const btnRef = useRef(null)
+  const scrollRef = useRef(null)
 
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -36,11 +37,13 @@ export default function Home() {
         gsap.set([...imagineChars, ...executeChars], { opacity: 1 })
         gsap.set([lineRightRef.current, lineLeftRef.current], { scaleX: 1 })
         gsap.set(btnRef.current, { opacity: 1, y: 0 })
+        gsap.set(scrollRef.current, { opacity: 1 })
         return
       }
 
       gsap.set(imagineChars, { opacity: 0 })
       gsap.set(executeChars, { opacity: 0 })
+      gsap.set(scrollRef.current, { opacity: 1 })
 
       // Pinned scroll-scrubbed reveal: the wrapper is 180vh tall, the hero
       // itself is sticky/pinned for the full viewport, and the timeline is
@@ -60,6 +63,7 @@ export default function Home() {
         .to(lineLeftRef.current, { scaleX: 1, duration: 1, ease: 'power2.out' }, '-=0.4')
         .to(executeChars, { opacity: 1, stagger: 0.03, duration: 0.6, ease: 'none' }, '<0.15')
         .to(btnRef.current, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '+=0.1')
+        .to(scrollRef.current, { opacity: 0, duration: 0.3 }, '<')
     }, wrapperRef)
 
     return () => ctx.revert()
@@ -101,6 +105,10 @@ export default function Home() {
               >
                 ENTER
               </button>
+            </div>
+            <div className="scroll-indicator" ref={scrollRef}>
+              <span>SCROLL DOWN</span>
+              <span className="scroll-arrow" aria-hidden="true"></span>
             </div>
           </section>
         </div>

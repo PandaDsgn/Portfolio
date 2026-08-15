@@ -1,12 +1,61 @@
+import { Fragment } from 'react'
 import PageShell from '../components/PageShell.jsx'
 import PageHeader from '../components/PageHeader.jsx'
+import {
+  SiPython,
+  SiC,
+  SiCplusplus,
+  SiJavascript,
+  SiRust,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiFlask,
+  SiHtml5,
+  SiCss,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiFirebase,
+  SiRender,
+  SiGithubpages,
+  SiGit,
+  SiGithub,
+  SiScikitlearn,
+  SiLangchain,
+  SiHuggingface,
+  SiArduino,
+  SiRaspberrypi,
+  SiNvidia,
+  SiKicad,
+  SiLtspice,
+  SiAnsys,
+  SiBlender,
+  SiTensorflow,
+  SiMysql,
+  SiDocker,
+} from 'react-icons/si'
+import { FaJava, FaAws } from 'react-icons/fa6'
 
+// Every logo sits in a white circle. Brand colors are sourced from the
+// simple-icons dataset (designed for use on a light background). A few marks
+// (Rust, Express, Flask, Render, GitHub, GitHub Pages, LangChain) have no
+// color set here — their canonical color is pure/near-black, so they fall
+// back to black, which reads cleanly against the white circle.
 function SkillList({ items }) {
   return items.map((item, i) => (
-    <span key={item}>
-      {item}
+    <Fragment key={item.name}>
+      <span className="skill-item">
+        {(item.icon || item.image) && (
+          <span className="skill-icon-badge">
+            {item.icon && <item.icon className="skill-icon" style={{ color: item.color || '#000' }} />}
+            {item.image && <img src={item.image} alt="" className="skill-icon" />}
+          </span>
+        )}
+        {item.name}
+      </span>
       {i < items.length - 1 && <span className="sep">|</span>}
-    </span>
+    </Fragment>
   ))
 }
 
@@ -14,52 +63,98 @@ const GROUPS = [
   {
     id: '01',
     title: 'LANGUAGES',
-    items: ['Python', 'C/C++', 'Java', 'JavaScript', 'Rust', 'SQL'],
+    items: [
+      { name: 'Python', image: 'assets/logos/Py.svg' },
+      { name: 'C', image: 'assets/logos/C.webp' },
+      { name: 'C++', icon: SiCplusplus, color: '#00599C' },
+      { name: 'Java', image: 'assets/logos/Java.svg' },
+      { name: 'JavaScript', image: 'assets/logos/JS.svg' },
+      { name: 'Rust', icon: SiRust },
+    ],
   },
   {
     id: '02',
-    title: 'WEB & BACKEND',
-    items: ['React.js', 'Node.js', 'Express.js', 'Flask', 'REST API design', 'HTML/CSS'],
+    title: 'OS Familiarity',
+    items: [
+      { name: 'Linux', image: 'assets/logos/Linux.svg' },
+      { name: 'MacOS', image: 'assets/logos/Mac.svg' },
+      { name: 'Windows', image: 'assets/logos/Windows.svg' },
+    ],
   },
   {
     id: '03',
-    title: 'DATABASES & REAL-TIME',
-    items: ['PostgreSQL', 'MongoDB', 'Redis', 'LISTEN/NOTIFY pub-sub', 'Server-Sent Events (SSE)'],
+    title: 'WEB & BACKEND',
+    items: [
+      { name: 'React.js', icon: SiReact, color: '#61DAFB' },
+      { name: 'Node.js', icon: SiNodedotjs, color: '#5FA04E' },
+      { name: 'Express.js', icon: SiExpress },
+      { name: 'Flask', icon: SiFlask },
+      { name: 'HTML', icon: SiHtml5, color: '#E34F26' },
+      { name: 'CSS', icon: SiCss, color: '#1572B6' },
+    ],
   },
   {
     id: '04',
-    title: 'CLOUD, AUTH & DEVOPS',
-    items: ['AWS', 'Firebase (Auth/Firestore)', 'CI/CD pipelines', 'Render', 'GitHub Pages', 'Git/GitHub', 'RBAC'],
+    title: 'DATABASES & REAL-TIME',
+    items: [
+      { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
+      { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+      { name: 'Redis', icon: SiRedis, color: '#FF4438' },
+      { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
+    ],
   },
   {
     id: '05',
-    title: 'AI / MACHINE LEARNING',
-    items: ['Scikit-learn', 'LangChain', 'RAG', 'Hugging Face', 'Deep Learning (CNNs)', 'Computer Vision', 'LLM/Gemini API integration'],
+    title: 'CLOUD, AUTH & DEVOPS',
+    items: [
+      { name: 'AWS', icon: FaAws, color: '#FF9900' },
+      { name: 'Firebase (Auth/Firestore)', icon: SiFirebase, color: '#DD2C00' },
+      { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+      { name: 'Render', icon: SiRender },
+      { name: 'GitHub Pages', icon: SiGithubpages },
+      { name: 'Git', icon: SiGit, color: '#F05032' },
+      { name: 'GitHub', icon: SiGithub },
+    ],
   },
   {
     id: '06',
-    title: 'DATA STRUCTURES & ALGORITHMS',
-    items: ['Competitive programming (arrays, graphs, DP, prefix sums, BFS, tree algorithms, Euler tour/LCA)'],
+    title: 'AI / MACHINE LEARNING',
+    items: [
+      { name: 'Scikit-learn', icon: SiScikitlearn, color: '#F7931E' },
+      { name: 'LangChain', icon: SiLangchain },
+      { name: 'Hugging Face', icon: SiHuggingface, color: '#FFD21E' },
+      { name: 'TensorFlow', icon: SiTensorflow, color: '#FF6F00' },
+
+    ],
   },
   {
     id: '07',
-    title: 'EMBEDDED & IOT',
+    title: 'EMBEDDED, IoT and Circuitry',
     items: [
-      'Arduino',
-      'Raspberry Pi',
-      'Jetson',
-      'KiCAD',
-      'Cadence Virtuoso',
-      'LTSpice',
-      'HFSS',
-      'MATLAB',
-      'IoT sensor integration (DHT11, HC-SR04, LDR)',
+      { name: 'Arduino', icon: SiArduino, color: '#00878F' },
+      { name: 'Raspberry Pi', icon: SiRaspberrypi, color: '#A22846' },
+      { name: 'Jetson', icon: SiNvidia, color: '#76B900' },
+      { name: 'KiCAD', icon: SiKicad, color: '#314CB0' },
+      { name: 'Cadence Virtuoso', image: 'assets/logos/cadence.svg' },
+      { name: 'LTSpice', icon: SiLtspice, color: '#900028' },
+      { name: 'HFSS', icon: SiAnsys, color: '#FFB71B' },
+      { name: 'MATLAB', image: 'assets/logos/matlab.svg' },
     ],
   },
   {
     id: '08',
     title: 'CAD & 3D (FREELANCE DOMAIN)',
-    items: ['AutoCAD', 'SolidWorks', 'Fusion 360', 'Blender3D', 'Maya', '3ds Max', 'V-Ray/Corona/KeyShot rendering'],
+    items: [
+      { name: 'AutoCAD', image: 'assets/logos/autocad.svg' },
+      { name: 'SolidWorks', image: 'assets/logos/solidworks.svg' },
+      { name: 'Fusion 360', image: 'assets/logos/fusion.webp' },
+      { name: 'Blender3D', icon: SiBlender, color: '#E87D0D' },
+      { name: 'Maya', image: 'assets/logos/maya.svg' },
+      { name: '3ds Max', image: 'assets/logos/3ds-max.svg' },
+      { name: 'V-Ray', image: 'assets/logos/vray.svg' },
+      { name: 'Corona', image: 'assets/logos/corona.svg' },
+      { name: 'Keyshot', image: 'assets/logos/keyshot.svg' },
+    ],
   },
 ]
 
