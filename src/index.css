@@ -274,6 +274,20 @@ nav {
     max-width: 85%; /* Ensures text leaves room for the lines */
 }
 
+/* --- SCROLL DOWN HINT (static, appears after the hero reveal) --- */
+.scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--gray);
+    pointer-events: none;
+    z-index: 5;
+}
+
 /* Sub-page Headers */
 .sub-page-header {
     display: flex;

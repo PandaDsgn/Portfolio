@@ -3,6 +3,10 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import gsap from 'gsap'
 import HudChrome from '../components/HudChrome.jsx'
 
+// Module-level (not component state) so it survives client-side route
+// changes back to Home — only a full page refresh resets it.
+let scrollHintDismissed = false
+
 function Chars({ text }) {
   return text.split('').map((ch, i) => (
     <span className="char" key={i}>
@@ -26,11 +30,14 @@ export default function Home() {
   const executeRef = useRef(null)
   const lineRightRef = useRef(null)
   const lineLeftRef = useRef(null)
+  const scrollRef = useRef(null)
   const cardsRef = useRef(null)
 
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const arrivingFromBack = Boolean(location.state?.fromBack)
+
+    let dismissHint = null
 
     const ctx = gsap.context(() => {
       const imagineChars = imagineRef.current.querySelectorAll('.char')
@@ -41,27 +48,45 @@ export default function Home() {
         // instantly (no smooth scroll) so it reads as "already there".
         window.scrollTo(0, cardsRef.current.offsetTop)
         window.history.replaceState({}, '')
+        scrollHintDismissed = true
       }
 
       if (reduceMotion || arrivingFromBack) {
         gsap.set([...imagineChars, ...executeChars], { opacity: 1 })
         gsap.set([lineRightRef.current, lineLeftRef.current], { scaleX: 1 })
-        return
+        gsap.set(scrollRef.current, { opacity: scrollHintDismissed ? 0 : 1 })
+      } else {
+        gsap.set(imagineChars, { opacity: 0 })
+        gsap.set(executeChars, { opacity: 0 })
+        gsap.set(scrollRef.current, { opacity: 0 })
+
+        // Plays once on mount, independent of scroll position.
+        const tl = gsap
+          .timeline()
+          .to(lineRightRef.current, { scaleX: 1, duration: 1, ease: 'power2.out' })
+          .to(imagineChars, { opacity: 1, stagger: 0.03, duration: 0.6, ease: 'none' }, '<0.15')
+          .to(lineLeftRef.current, { scaleX: 1, duration: 1, ease: 'power2.out' }, '-=0.4')
+          .to(executeChars, { opacity: 1, stagger: 0.03, duration: 0.6, ease: 'none' }, '<0.15')
+
+        if (!scrollHintDismissed) {
+          tl.to(scrollRef.current, { opacity: 1, duration: 0.4 }, '+=0.2')
+        }
       }
 
-      gsap.set(imagineChars, { opacity: 0 })
-      gsap.set(executeChars, { opacity: 0 })
-
-      // Plays once on mount, independent of scroll position.
-      gsap
-        .timeline()
-        .to(lineRightRef.current, { scaleX: 1, duration: 1, ease: 'power2.out' })
-        .to(imagineChars, { opacity: 1, stagger: 0.03, duration: 0.6, ease: 'none' }, '<0.15')
-        .to(lineLeftRef.current, { scaleX: 1, duration: 1, ease: 'power2.out' }, '-=0.4')
-        .to(executeChars, { opacity: 1, stagger: 0.03, duration: 0.6, ease: 'none' }, '<0.15')
+      if (!scrollHintDismissed) {
+        dismissHint = () => {
+          scrollHintDismissed = true
+          gsap.to(scrollRef.current, { opacity: 0, duration: 0.3 })
+          window.removeEventListener('scroll', dismissHint)
+        }
+        window.addEventListener('scroll', dismissHint, { passive: true })
+      }
     }, heroRef)
 
-    return () => ctx.revert()
+    return () => {
+      ctx.revert()
+      if (dismissHint) window.removeEventListener('scroll', dismissHint)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -82,6 +107,10 @@ export default function Home() {
               <Chars text="EXECUTE." />
             </h1>
           </div>
+
+          <span className="scroll-hint" ref={scrollRef}>
+            SCROLL DOWN
+          </span>
         </section>
 
         <div
