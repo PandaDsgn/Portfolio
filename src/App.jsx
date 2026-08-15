@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 
+import CustomCursor from './components/CustomCursor.jsx'
 import Home from './pages/Home.jsx'
 import Profile from './pages/Profile.jsx'
 import Experience from './pages/Experience.jsx'
@@ -22,6 +23,7 @@ function RouteEffects() {
 export default function App() {
   return (
     <>
+      <CustomCursor />
       <RouteEffects />
       <Routes>
         <Route path="/" element={<Home />} />

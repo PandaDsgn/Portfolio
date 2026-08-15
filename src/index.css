@@ -586,7 +586,6 @@ nav {
     justify-content: center;
     width: 28px;
     height: 28px;
-    border-radius: 50%;
     background: #fff;
     overflow: hidden;
     flex-shrink: 0;
@@ -611,7 +610,6 @@ nav {
     width: 84px;
     height: 84px;
     flex-shrink: 0;
-    border-radius: 50%;
     background: #fff;
     display: flex;
     align-items: center;
@@ -738,6 +736,35 @@ nav {
 }
 .tech-link:hover {
     color: var(--blue);
+}
+
+/* --- CUSTOM CURSOR --- */
+html.custom-cursor-active,
+html.custom-cursor-active * {
+    cursor: none !important;
+}
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-3px, -3px);
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.2s ease;
+}
+.custom-cursor path {
+    fill: var(--blue);
+    stroke: var(--text);
+    stroke-width: 1.2px;
+    stroke-linejoin: round;
+    transition: fill 0.15s ease, stroke 0.15s ease;
+}
+.custom-cursor--hover path {
+    fill: var(--text);
+    stroke: var(--blue);
+}
+.custom-cursor--hidden {
+    opacity: 0;
 }
 
 /* --- SOCIAL ICON BUTTONS --- */
