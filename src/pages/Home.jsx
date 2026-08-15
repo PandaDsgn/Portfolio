@@ -15,10 +15,10 @@ function Chars({ text }) {
 }
 
 const CARDS = [
-  { title: 'PROFILE', desc: 'IDENTITY & EDUCATION', to: '/profile' },
-  { title: 'EXPERIENCE', desc: 'JOB HISTORY & TIMELINE', to: '/experience' },
+  { title: 'PROFILE', desc: 'IDENTITY, EDUCATION and CONTACT', to: '/profile' },
+  { title: 'EXPERIENCE', desc: 'Professional HISTORY and Creds', to: '/experience' },
   { title: 'SKILLSETS', desc: 'LANGUAGES, TOOLS & FRAMEWORKS', to: '/skillsets' },
-  { title: 'PROJECTS &\nPUBLICATIONS', desc: 'COMPILED BUILDS & CASE STUDIES', to: '/projects' },
+  { title: 'PROJECTS &\nPUBLICATIONS', desc: 'ACADemic and Hobbyist projects', to: '/projects' },
 ]
 
 export default function Home() {

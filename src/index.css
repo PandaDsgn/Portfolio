@@ -437,6 +437,7 @@ nav {
     flex-shrink: 0;
     margin-right: 40px;
     align-self: center;
+    font-variant-numeric: tabular-nums;
 }
 .data-value-group {
     text-align: right;
@@ -760,7 +761,7 @@ nav {
     content: "↗";
     position: absolute;
     top: 34px;
-    right: 0;
+    right: 15px;
     font-size: 1.5rem;
     color: var(--gray);
     transition: all 0.3s;
