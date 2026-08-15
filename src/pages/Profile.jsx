@@ -40,7 +40,7 @@ export default function Profile() {
             I enjoy working on multiple different domains of software development, including <strong>Full-Stack, Cloud-Deployed applications</strong> and <strong>IoT</strong> platforms. As an Electronics Engineer I also like working on <strong>Embedded Systems</strong>, and <strong>Low Power Systems</strong>.
             <br />
             <br />
-            Furthermore I enjoy practising <strong>competitive-programming.</strong> I also love cars and have always had a knack for <strong>Graphic Designing</strong>, which led me to have a professional career in <strong>Automotive Visualisation</strong> for nearly a decade and worked with multiple clients as a freelancer as well as employed artist as a <strong>3D Generalist and Environment Artist</strong>.
+            Furthermore I enjoy practising <strong>competitive-programming.</strong> I also love cars and have always had a knack for <strong>Graphic Designing</strong>, which led me to have a professional career in <strong>Automotive Visualisation</strong> for nearly a decade where I worked with multiple clients as a freelancer as well as an employed artist as a <strong>3D Generalist and Environment Artist</strong>.
           </p>
 
           <div className="data-table">
