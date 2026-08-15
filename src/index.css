@@ -188,6 +188,12 @@ nav {
     }
 }
 
+.char {
+    display: inline-block;
+    opacity: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
 /* --- HERO CONTAINER UPDATED --- */
 .hero {
     height: 100vh;

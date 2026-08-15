@@ -7,6 +7,14 @@ import HudChrome from '../components/HudChrome.jsx'
 // changes back to Home — only a full page refresh resets it.
 let scrollHintDismissed = false
 
+function Chars({ text }) {
+  return text.split('').map((ch, i) => (
+    <span className="char" key={i}>
+      {ch === ' ' ? ' ' : ch}
+    </span>
+  ))
+}
+
 const CARDS = [
   { title: 'PROFILE', desc: 'IDENTITY, EDUCATION and CONTACT', to: '/profile' },
   { title: 'EXPERIENCE', desc: 'Professional HISTORY and Creds', to: '/experience' },
@@ -18,6 +26,8 @@ export default function Home() {
   const navigate = useNavigate()
   const location = useLocation()
   const heroRef = useRef(null)
+  const imagineRef = useRef(null)
+  const executeRef = useRef(null)
   const lineRightRef = useRef(null)
   const lineLeftRef = useRef(null)
   const scrollRef = useRef(null)
@@ -30,6 +40,9 @@ export default function Home() {
     let dismissHint = null
 
     const ctx = gsap.context(() => {
+      const imagineChars = imagineRef.current.querySelectorAll('.char')
+      const executeChars = executeRef.current.querySelectorAll('.char')
+
       if (arrivingFromBack) {
         // Land straight on the menu, not the hero from scratch — jump
         // instantly (no smooth scroll) so it reads as "already there".
@@ -39,16 +52,21 @@ export default function Home() {
       }
 
       if (reduceMotion || arrivingFromBack) {
+        gsap.set([...imagineChars, ...executeChars], { opacity: 1 })
         gsap.set([lineRightRef.current, lineLeftRef.current], { scaleX: 1 })
         gsap.set(scrollRef.current, { opacity: scrollHintDismissed ? 0 : 1 })
       } else {
+        gsap.set(imagineChars, { opacity: 0 })
+        gsap.set(executeChars, { opacity: 0 })
         gsap.set(scrollRef.current, { opacity: 0 })
 
         // Plays once on mount, independent of scroll position.
         const tl = gsap
           .timeline()
           .to(lineRightRef.current, { scaleX: 1, duration: 1, ease: 'power2.out' })
+          .to(imagineChars, { opacity: 1, stagger: 0.03, duration: 0.6, ease: 'none' }, '<0.15')
           .to(lineLeftRef.current, { scaleX: 1, duration: 1, ease: 'power2.out' }, '-=0.4')
+          .to(executeChars, { opacity: 1, stagger: 0.03, duration: 0.6, ease: 'none' }, '<0.15')
 
         if (!scrollHintDismissed) {
           tl.to(scrollRef.current, { opacity: 1, duration: 0.4 }, '+=0.2')
@@ -78,12 +96,16 @@ export default function Home() {
       <main>
         <section className="hero" ref={heroRef}>
           <div className="hero-row">
-            <h1>IMAGINE.</h1>
+            <h1 ref={imagineRef}>
+              <Chars text="IMAGINE." />
+            </h1>
             <div className="deco-lines from-right" ref={lineRightRef}></div>
           </div>
           <div className="hero-row right-align">
             <div className="deco-lines from-left" ref={lineLeftRef}></div>
-            <h1 className="text-blue">EXECUTE.</h1>
+            <h1 className="text-blue" ref={executeRef}>
+              <Chars text="EXECUTE." />
+            </h1>
           </div>
 
           <span className="scroll-hint" ref={scrollRef}>
