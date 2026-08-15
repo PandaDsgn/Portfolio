@@ -329,22 +329,12 @@ nav {
     }
 }
 
-.profile-image-wrapper {
-    width: 100%;
-    position: relative;
-    margin-top: 1.5vh;
-}
-.profile-image-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 .profile-intel {
     width: 100%;
+    container-type: inline-size;
 }
 .profile-intel h2 {
-    font-size: clamp(2rem, 5.2vw, 5rem);
+    font-size: clamp(1.4rem, 6.5cqw, 5rem);
     line-height: 0.9;
     margin: 0 0 40px 0;
     letter-spacing: -0.04em;
