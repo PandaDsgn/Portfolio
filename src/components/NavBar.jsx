@@ -1,5 +1,4 @@
 import { useNavigate, useLocation } from 'react-router-dom'
-import { glitchText } from '../utils/textGlitch.js'
 
 const TABS = [
   { label: 'PROFILE', to: '/profile' },
@@ -14,21 +13,13 @@ export default function NavBar({ showBack = true }) {
 
   function handleBack(e) {
     e.preventDefault()
-    const el = e.currentTarget
-    el.classList.add('text-blue')
-    glitchText(el, {
-      duration: 380,
-      onComplete: () => navigate('/', { state: { fromBack: true } }),
-    })
+    navigate('/', { state: { fromBack: true } })
   }
 
   function handleTabClick(e, to) {
     e.preventDefault()
     if (location.pathname === to) return
-    glitchText(e.currentTarget, {
-      duration: 380,
-      onComplete: () => navigate(to),
-    })
+    navigate(to)
   }
 
   return (

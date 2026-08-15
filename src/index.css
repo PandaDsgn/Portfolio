@@ -188,13 +188,6 @@ nav {
     }
 }
 
-/* --- HERO & HEADERS --- */
-.char {
-    display: inline-block;
-    opacity: 0;
-    -webkit-font-smoothing: antialiased;
-}
-
 /* --- HERO CONTAINER UPDATED --- */
 .hero {
     height: 100vh;
@@ -354,11 +347,6 @@ nav {
     white-space: nowrap;
     display: block;
 }
-.profile-intel h2 .char {
-    background-color: transparent !important;
-    opacity: 0;
-}
-
 .bio-large {
     font-size: clamp(1rem, 1.8vw, 1.3rem);
     line-height: 1.6;

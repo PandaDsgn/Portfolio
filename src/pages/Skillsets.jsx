@@ -72,10 +72,8 @@ const GROUPS = [
     items: [
       { name: 'Python', image: 'assets/logos/Py.svg' },
       { name: 'C', image: 'assets/logos/C.webp' },
-      { name: 'C++', icon: SiCplusplus, color: '#00599C' },
       { name: 'Java', image: 'assets/logos/Java.svg' },
       { name: 'JavaScript', image: 'assets/logos/JS.svg' },
-      { name: 'Rust', icon: SiRust },
     ],
   },
   {
@@ -93,7 +91,6 @@ const GROUPS = [
     items: [
       { name: 'React.js', icon: SiReact, color: '#61DAFB' },
       { name: 'Node.js', icon: SiNodedotjs, color: '#5FA04E' },
-      { name: 'Flask', icon: SiFlask },
       { name: 'HTML', icon: SiHtml5, color: '#E34F26' },
       { name: 'CSS', icon: SiCss, color: '#1572B6' },
     ],
@@ -104,7 +101,6 @@ const GROUPS = [
     items: [
       { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
       { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
-      { name: 'Redis', icon: SiRedis, color: '#FF4438' },
       { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
     ],
   },
@@ -115,10 +111,6 @@ const GROUPS = [
       { name: 'AWS', icon: FaAws, color: '#FF9900' },
       { name: 'Firebase', icon: SiFirebase, color: '#DD2C00' },
       { name: 'Docker', icon: SiDocker, color: '#2496ED' },
-      { name: 'Render', icon: SiRender },
-      { name: 'GitHub Pages', icon: SiGithubpages },
-      { name: 'Git', icon: SiGit, color: '#F05032' },
-      { name: 'GitHub', icon: SiGithub },
     ],
   },
   {
@@ -127,7 +119,6 @@ const GROUPS = [
     items: [
       { name: 'Scikit-learn', icon: SiScikitlearn, color: '#F7931E' },
       { name: 'LangChain', icon: SiLangchain },
-      { name: 'Hugging Face', icon: SiHuggingface, color: '#FFD21E' },
       { name: 'TensorFlow', icon: SiTensorflow, color: '#FF6F00' },
 
     ],
@@ -136,39 +127,38 @@ const GROUPS = [
     id: '07',
     title: 'EMBEDDED, IoT and Circuitry',
     items: [
-      { name: 'Arduino', icon: SiArduino, color: '#00878F' },
-      { name: 'Raspberry Pi', icon: SiRaspberrypi, color: '#A22846' },
-      { name: 'Jetson', icon: SiNvidia, color: '#76B900' },
       { name: 'KiCAD', icon: SiKicad, color: '#314CB0' },
       { name: 'Cadence Virtuoso', image: 'assets/logos/cadence.svg' },
       { name: 'LTSpice', icon: SiLtspice, color: '#900028' },
-      { name: 'HFSS', icon: SiAnsys, color: '#FFB71B' },
       { name: 'MATLAB', image: 'assets/logos/matlab.svg' },
     ],
   },
   {
     id: '08',
-    title: 'CAD & 3D',
+    title: 'Simulation',
     items: [
-      { name: 'AutoCAD', image: 'assets/logos/autocad.svg' },
-      { name: 'SolidWorks', image: 'assets/logos/solidworks.svg' },
-      { name: 'Fusion 360', image: 'assets/logos/fusion.webp' },
-      { name: 'Blender', icon: SiBlender, color: '#E87D0D' },
-      { name: 'Maya', image: 'assets/logos/maya.svg' },
-      { name: '3ds Max', image: 'assets/logos/3ds-max.svg' },
-      { name: 'V-Ray', image: 'assets/logos/vray.svg' },
-      { name: 'Corona', image: 'assets/logos/corona.svg' },
-      { name: 'Keyshot', image: 'assets/logos/keyshot.svg', size: 24 },
+      { name: 'KiCAD', icon: SiKicad, color: '#314CB0' },
+      { name: 'Cadence Virtuoso', image: 'assets/logos/cadence.svg' },
+      { name: 'LTSpice', icon: SiLtspice, color: '#900028' },
+      { name: 'MATLAB', image: 'assets/logos/matlab.svg' },
     ],
   },
   {
     id: '09',
+    title: 'CAD & 3D',
+    items: [
+      { name: 'AutoCAD', image: 'assets/logos/autocad.svg' },
+      { name: 'Fusion 360', image: 'assets/logos/fusion.webp' },
+      { name: 'Blender', icon: SiBlender, color: '#E87D0D' },
+      { name: '3ds Max', image: 'assets/logos/3ds-max.svg' },
+      { name: 'Corona', image: 'assets/logos/corona.svg' },
+    ],
+  },
+  {
+    id: '10',
     title: 'CG and Post Production',
     items: [
-      { name: 'Photoshop', image: 'assets/logos/Ps.webp' },
-      { name: 'After Effects', image: 'assets/logos/Ae.webp' },
-      { name: 'Premiere Pro', image: 'assets/logos/Pr.webp' },
-      { name: 'Illustrator', image: 'assets/logos/Ai.webp' },
+      { name: 'Adobe Suite', image: 'assets/logos/Adobe.svg' },
       { name: 'Nuke', image: 'assets/logos/Nuke.svg', size: 24 },
       { name: 'DaVinci Resolve', image: 'assets/logos/Dv.png', size: 24 },
     ],

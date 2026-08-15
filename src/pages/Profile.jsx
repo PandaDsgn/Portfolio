@@ -1,6 +1,5 @@
 import PageShell from '../components/PageShell.jsx'
 import PageHeader from '../components/PageHeader.jsx'
-import SplitText from '../components/SplitText.jsx'
 import { FiMapPin, FiMail, FiPhone } from 'react-icons/fi'
 import { FaLinkedin } from 'react-icons/fa6'
 import { SiGithub, SiBehance, SiInstagram } from 'react-icons/si'
@@ -16,7 +15,7 @@ export default function Profile() {
         </div>
 
         <div className="profile-intel">
-          <SplitText as="h2" text="Vedanta" className="split-me" />
+          <h2>Vedanta</h2>
 
           <div
             style={{
@@ -36,10 +35,10 @@ export default function Profile() {
           </div>
 
           <p className="bio-large" style={{ marginBottom: 40 }}>
-            I am a 21 year old tech enthusiast, currently pursuing a Bachelor's in <strong>Electronics &amp; Communication Engineering</strong>. And if you can't already tell, I kind of like the colour <strong className="text-blue">blue</strong>.
+            I am a 21 year old guy, currently pursuing a Bachelor's in <strong>Electronics &amp; Communication Engineering</strong>. And if you can't already tell, I kind of like the colour <strong className="text-blue">blue</strong>.
             <br />
             <br />
-            I enjoy working on multiple different domains of software development, including <strong>Full-Stack, Cloud-Deployed applications</strong> and <strong>IoT</strong> platforms. As an Electronics Engineer I also like working on <strong>Embedded Systems</strong>, and <strong>Low Power Systems</strong>. Furthermore I enjoy practising <strong>competitive-programming</strong>.
+            I enjoy working on multiple different domains of development, including <strong>Full-Stack, Cloud-Deployed applications</strong> and <strong>IoT</strong> (sensors and devboards). As an Electronics Engineer I also like working on <strong>Embedded Systems</strong>, and <strong>Low Power Systems</strong>. Furthermore I enjoy practising <strong>competitive-programming</strong>.
             <br />
             <br />
             I also love cars and have always had a knack for <strong>Graphic Designing</strong>, which led me to have a professional career in <strong>Automotive Visualisation</strong> for nearly a decade where I worked with multiple clients as a freelancer as well as an employed artist under the role of a <strong>3D Generalist and Environment Artist</strong>. I started back in High School during Covid lockdowns and got heavily invested.
