@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "Aileron";
+    src: url("/Portfolio/assets/fonts/alieron/Aileron-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Aileron";
+    src: url("/Portfolio/assets/fonts/alieron/Aileron-Black.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --black: #080808;
     --gray: #444444;
@@ -20,7 +35,7 @@ html {
 body {
     background-color: var(--black);
     color: var(--text);
-    font-family: "Inter", sans-serif;
+    font-family: "Aileron", sans-serif;
     margin: 0;
     text-transform: uppercase;
     overflow-x: hidden;
@@ -125,41 +140,6 @@ nav {
     }
 }
 
-/* --- UNIFIED ACCESS BUTTONS --- */
-.nav-btn {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    font-weight: 900;
-    display: inline-block;
-    border: 1px solid var(--line);
-    padding: 12px 24px;
-    background-color: transparent;
-    cursor: pointer;
-    transition: all 0.1s ease;
-    font-family: "Inter", sans-serif;
-    text-transform: uppercase;
-    user-select: none;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-@media (max-width: 700px) {
-    .nav-btn {
-        padding: 8px 14px;
-        font-size: 0.75rem;
-    }
-}
-
-/* INTERACTION STATES */
-.nav-btn:hover,
-.nav-btn:active {
-    background-color: var(--text);
-    color: var(--black);
-    border-color: var(--text);
-}
-
 /* --- MOBILE MENU TOGGLE ---
    Below 700px the horizontal tab strip is replaced entirely by a hamburger
    button that opens a full-screen stacked menu (.nav-mobile-menu) — a
@@ -176,6 +156,7 @@ nav {
     color: var(--text);
     cursor: pointer;
     flex-shrink: 0;
+    margin-left: auto;
 }
 @media (max-width: 700px) {
     .nav-menu-toggle {
@@ -250,7 +231,7 @@ nav {
     background-color: transparent;
     cursor: pointer;
     transition: all 0.15s ease;
-    font-family: "Inter", sans-serif;
+    font-family: "Aileron", sans-serif;
     text-transform: uppercase;
     user-select: none;
     white-space: nowrap;
@@ -593,7 +574,7 @@ nav {
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.55);
-    color: var(--text);
+    color: var(--blue);
     font-weight: 900;
     font-size: 0.8rem;
     letter-spacing: 1px;

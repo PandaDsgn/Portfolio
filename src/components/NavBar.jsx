@@ -38,12 +38,6 @@ export default function NavBar() {
     }
   }, [menuOpen])
 
-  function handleHomeClick(e) {
-    e.preventDefault()
-    setMenuOpen(false)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
   function handleTabClick(e, id) {
     e.preventDefault()
     setMenuOpen(false)
@@ -53,9 +47,6 @@ export default function NavBar() {
   return (
     <>
       <nav>
-        <a href="#" className="nav-btn back-link" onClick={handleHomeClick}>
-          HOME
-        </a>
         <div className="nav-tabs">
           {TABS.map((tab) => (
             <a
@@ -80,9 +71,6 @@ export default function NavBar() {
       </nav>
 
       <div className={`nav-mobile-menu${menuOpen ? ' open' : ''}`}>
-        <a href="#" className="nav-mobile-link" onClick={handleHomeClick}>
-          HOME
-        </a>
         {TABS.map((tab) => (
           <a
             key={tab.id}
