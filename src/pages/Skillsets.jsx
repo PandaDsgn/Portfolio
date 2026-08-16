@@ -1,5 +1,3 @@
-import { Fragment } from 'react'
-import PageShell from '../components/PageShell.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import {
   SiPython,
@@ -43,26 +41,25 @@ import { FaJava, FaAws } from 'react-icons/fa6'
 // color set here — their canonical color is pure/near-black, so they fall
 // back to black, which reads cleanly against the white circle.
 function SkillList({ items }) {
-  return items.map((item, i) => {
-    // A few source logos (Keyshot, Nuke, DaVinci) bake in their own circular
-    // padding, so at the standard 19px they read visibly smaller than every
-    // other logo's padding. Bump those specific ones up via item.size.
-    const sizeStyle = item.size ? { width: item.size, height: item.size } : undefined
-    return (
-      <Fragment key={item.name}>
-        <span className="skill-item">
-          {(item.icon || item.image) && (
+  return (
+    <div className="skill-chip-list">
+      {items.map((item) => {
+        // A few source logos (Keyshot, Nuke, DaVinci) bake in their own circular
+        // padding, so at the standard 19px they read visibly smaller than every
+        // other logo's padding. Bump those specific ones up via item.size.
+        const sizeStyle = item.size ? { width: item.size, height: item.size } : undefined
+        return (
+          <span className="skill-chip" key={item.name}>
             <span className="skill-icon-badge">
               {item.icon && <item.icon className="skill-icon" style={{ color: item.color || '#000', ...sizeStyle }} />}
               {item.image && <img src={item.image} alt="" className="skill-icon" style={sizeStyle} />}
             </span>
-          )}
-          {item.name}
-        </span>
-        {i < items.length - 1 && <span className="sep">|</span>}
-      </Fragment>
-    )
-  })
+            {item.name}
+          </span>
+        )
+      })}
+    </div>
+  )
 }
 
 const GROUPS = [
@@ -167,25 +164,25 @@ const GROUPS = [
 
 export default function Skillsets() {
   return (
-    <PageShell>
+    <section id="skillsets" className="content-section">
       <PageHeader text="SKILLSETS" />
       <div className="bold-profile-grid" style={{ gridTemplateColumns: '1fr' }}>
         <div className="profile-intel">
           {GROUPS.map((group) => (
             <div className="data-table" key={group.id}>
-              <div className="data-row">
-                <span className="data-label">{group.id}</span>
+              <div className="data-row" style={{ alignItems: 'flex-start' }}>
+                <span className="data-label" style={{ alignSelf: 'flex-start' }}>
+                  {group.id}
+                </span>
                 <div className="data-value-group" style={{ textAlign: 'left', marginLeft: 0, flexGrow: 1 }}>
                   <span className="data-value">{group.title}</span>
-                  <span className="data-sub-value">
-                    <SkillList items={group.items} />
-                  </span>
+                  <SkillList items={group.items} />
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </PageShell>
+    </section>
   )
 }

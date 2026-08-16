@@ -1,4 +1,3 @@
-import PageShell from '../components/PageShell.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 
 // Resolves against Vite's base path so links work both on localhost (base "/")
@@ -309,7 +308,7 @@ function CertPairRow({ pair }) {
 
 export default function Experience() {
   return (
-    <PageShell>
+    <section id="experience" className="content-section">
       <PageHeader text="EXPERIENCE" />
       <div className="bold-profile-grid" style={{ gridTemplateColumns: '1fr' }}>
         <div className="profile-intel">
@@ -363,6 +362,6 @@ export default function Experience() {
           ))}
         </div>
       </div>
-    </PageShell>
+    </section>
   )
 }

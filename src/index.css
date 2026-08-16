@@ -304,14 +304,18 @@ nav {
 }
 
 /* --- BOLD INTERNAL GRID --- */
-.projects-page {
-    overflow-y: auto;
-    padding-top: 15vh;
-}
 .project-container {
     padding: 0 5%;
     padding-bottom: 100px;
     width: 100%;
+}
+
+.content-section {
+    display: block;
+    scroll-margin-top: 130px;
+}
+.content-section + .content-section {
+    margin-top: 14vh;
 }
 
 .bold-profile-grid {
@@ -356,24 +360,47 @@ nav {
     font-weight: 900;
 }
 
-/* --- DATA TABLES --- */
+/* --- DATA TABLES ---
+   Corner-bracket demarcation, reusing the exact HUD crosshair look from the
+   page corners (var(--gray), open L-shapes) but scaled down to frame each
+   entry — 8 short solid segments via layered background gradients, no
+   extra DOM nodes and no continuous rule lines. */
 .data-table {
     position: relative;
     width: 100%;
-    margin-bottom: 60px;
-    border-top: 1px solid var(--line);
+    margin-bottom: 24px;
+    padding: 32px 5%;
+    background-image:
+        linear-gradient(var(--gray), var(--gray)),
+        linear-gradient(var(--gray), var(--gray)),
+        linear-gradient(var(--gray), var(--gray)),
+        linear-gradient(var(--gray), var(--gray)),
+        linear-gradient(var(--gray), var(--gray)),
+        linear-gradient(var(--gray), var(--gray)),
+        linear-gradient(var(--gray), var(--gray)),
+        linear-gradient(var(--gray), var(--gray));
+    background-size:
+        16px 1px, 1px 16px,
+        16px 1px, 1px 16px,
+        16px 1px, 1px 16px,
+        16px 1px, 1px 16px;
+    background-position:
+        top left, top left,
+        top right, top right,
+        bottom right, bottom right,
+        bottom left, bottom left;
+    background-repeat: no-repeat;
 }
 .data-row {
     display: flex;
     justify-content: space-between;
-    padding: 25px 0;
-    border-bottom: 1px solid var(--line);
     position: relative;
     z-index: 1;
 }
 .data-label {
     font-weight: 900;
-    font-size: 1rem;
+    font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+    line-height: 1;
     color: var(--gray);
     flex-shrink: 0;
     margin-right: 40px;
@@ -558,11 +585,23 @@ nav {
     transform: scale(1.08);
 }
 
-/* --- SKILL ICONS --- */
-.skill-item {
+/* --- SKILL CHIPS --- */
+.skill-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+.skill-chip {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    padding: 6px 14px 6px 6px;
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
 }
 .skill-icon-badge {
     display: inline-flex;
@@ -626,88 +665,6 @@ nav {
     .job-row-with-logo .project-divider {
         display: none;
     }
-}
-
-/* --- DASHBOARD LIST --- */
-.grid-layout {
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid var(--line);
-}
-
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 34px 60px 34px 0;
-    border-bottom: 1px solid var(--line);
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: pointer;
-}
-@media (min-width: 700px) {
-    .card {
-        flex-direction: row;
-        align-items: center;
-        gap: 0;
-    }
-}
-.card:hover {
-    background: rgba(255, 255, 255, 0.03);
-}
-.card h2 {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    margin: 0;
-    color: var(--text);
-    z-index: 2;
-    transition: all 0.3s ease;
-    font-weight: 900;
-    text-align: left;
-}
-@media (min-width: 700px) {
-    .card h2 {
-        flex: 0 0 33%;
-    }
-}
-
-/* --- CARD DESCRIPTION FIXED --- */
-.card p {
-    font-size: 0.85rem;
-    color: var(--blue);
-    font-family: "Inter", sans-serif;
-    font-weight: 900; /* Fixed: set to bold to match site style */
-    z-index: 2;
-    margin: 0;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-@media (min-width: 700px) {
-    .card p {
-        flex: 1;
-        margin-left: 15%;
-    }
-}
-
-.card:hover h2,
-.card:hover p {
-    transform: translateX(15px);
-}
-.card:hover p {
-    color: var(--text);
-}
-.card::after {
-    content: "↗";
-    position: absolute;
-    top: 34px;
-    right: 15px;
-    font-size: 1.5rem;
-    color: var(--gray);
-    transition: all 0.3s;
-}
-.card:hover::after {
-    color: var(--text);
-    transform: translate(5px, -5px);
 }
 
 /* --- LINKS --- */

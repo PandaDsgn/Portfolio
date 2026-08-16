@@ -1,4 +1,3 @@
-import PageShell from '../components/PageShell.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 
 // Resolves against Vite's base path so links work both on localhost (base "/")
@@ -87,7 +86,7 @@ const PUBLICATIONS = [
 
 export default function Projects() {
   return (
-    <PageShell>
+    <section id="projects" className="content-section">
       <PageHeader text="PROJECTS & PUBLICATIONS" />
       <div className="bold-profile-grid" style={{ gridTemplateColumns: '1fr' }}>
         <div className="profile-intel">
@@ -175,6 +174,6 @@ export default function Projects() {
           ))}
         </div>
       </div>
-    </PageShell>
+    </section>
   )
 }

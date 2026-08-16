@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 const INTERACTIVE_SELECTOR =
-  'a, button, .card, .nav-btn, .nav-tab, .cert-thumb-link, .project-thumb-link, .resume-thumb-link, .tech-link, .social-icon-link, input, textarea, select, [role="button"]'
+  'a, button, .nav-btn, .nav-tab, .cert-thumb-link, .project-thumb-link, .resume-thumb-link, .tech-link, .social-icon-link, input, textarea, select, [role="button"]'
 
 export default function CustomCursor() {
   const dotRef = useRef(null)

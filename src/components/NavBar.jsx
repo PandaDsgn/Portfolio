@@ -1,43 +1,56 @@
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 const TABS = [
-  { label: 'PROFILE', to: '/profile' },
-  { label: 'EXPERIENCE', to: '/experience' },
-  { label: 'SKILLSETS', to: '/skillsets' },
-  { label: 'PROJECTS', to: '/projects' },
+  { label: 'PROFILE', id: 'profile' },
+  { label: 'EXPERIENCE', id: 'experience' },
+  { label: 'SKILLSETS', id: 'skillsets' },
+  { label: 'PROJECTS', id: 'projects' },
 ]
 
-export default function NavBar({ showBack = true }) {
-  const navigate = useNavigate()
-  const location = useLocation()
+export default function NavBar() {
+  const [activeId, setActiveId] = useState(null)
 
-  function handleBack(e) {
+  useEffect(() => {
+    const sections = TABS.map((tab) => document.getElementById(tab.id)).filter(Boolean)
+    if (!sections.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveId(entry.target.id)
+        }
+      },
+      // Treat a section as "active" once it's crossed the upper-middle of
+      // the viewport, and stop tracking it before it reaches the bottom.
+      { rootMargin: '-45% 0px -50% 0px' }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
+
+  function handleHomeClick(e) {
     e.preventDefault()
-    navigate('/', { state: { fromBack: true } })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  function handleTabClick(e, to) {
+  function handleTabClick(e, id) {
     e.preventDefault()
-    if (location.pathname === to) return
-    navigate(to)
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <nav>
-      {showBack ? (
-        <a href="/" className="nav-btn back-link" onClick={handleBack}>
-          HOME
-        </a>
-      ) : (
-        <span />
-      )}
+      <a href="#" className="nav-btn back-link" onClick={handleHomeClick}>
+        HOME
+      </a>
       <div className="nav-tabs">
         {TABS.map((tab) => (
           <a
-            key={tab.to}
-            href={tab.to}
-            className={`nav-tab${location.pathname === tab.to ? ' active' : ''}`}
-            onClick={(e) => handleTabClick(e, tab.to)}
+            key={tab.id}
+            href={`#${tab.id}`}
+            className={`nav-tab${activeId === tab.id ? ' active' : ''}`}
+            onClick={(e) => handleTabClick(e, tab.id)}
           >
             {tab.label}
           </a>

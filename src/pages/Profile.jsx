@@ -1,4 +1,3 @@
-import PageShell from '../components/PageShell.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { FiMapPin, FiMail, FiPhone } from 'react-icons/fi'
 import { FaLinkedin } from 'react-icons/fa6'
@@ -6,7 +5,7 @@ import { SiGithub, SiBehance, SiInstagram } from 'react-icons/si'
 
 export default function Profile() {
   return (
-    <PageShell>
+    <section id="profile" className="content-section">
       <PageHeader text="PROFILE" />
 
       <div className="bold-profile-grid" style={{ gridTemplateColumns: '1fr' }}>
@@ -30,6 +29,60 @@ export default function Profile() {
             KOLKATA, INDIA
           </div>
 
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 30 }}>
+            <a href="mailto:vedantabandyopadhyay@gmail.com" className="tech-link" aria-label="Email" title="Email">
+              <FiMail size={16} />
+            </a>
+            <span className="sep">|</span>
+            <a href="tel:+919038101994" className="tech-link" aria-label="Phone" title="Phone">
+              <FiPhone size={16} />
+            </a>
+            <span className="sep">|</span>
+            <a
+              href="https://www.linkedin.com/in/vedantabandyopadhyay/"
+              target="_blank"
+              rel="noreferrer"
+              className="tech-link"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <FaLinkedin size={16} />
+            </a>
+            <span className="sep">|</span>
+            <a
+              href="https://github.com/PandaDsgn"
+              target="_blank"
+              rel="noreferrer"
+              className="tech-link"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <SiGithub size={16} />
+            </a>
+            <span className="sep">|</span>
+            <a
+              href="https://www.behance.net/panda_designz"
+              target="_blank"
+              rel="noreferrer"
+              className="tech-link"
+              aria-label="Behance"
+              title="Behance"
+            >
+              <SiBehance size={16} />
+            </a>
+            <span className="sep">|</span>
+            <a
+              href="https://www.instagram.com/panda._.designz"
+              target="_blank"
+              rel="noreferrer"
+              className="tech-link"
+              aria-label="Instagram"
+              title="Instagram"
+            >
+              <SiInstagram size={16} />
+            </a>
+          </div>
+
           <p className="bio-large" style={{ marginBottom: 40 }}>
             I am a 21 year old guy, currently pursuing a Bachelor's in <strong>Electronics &amp; Communication Engineering</strong>.
             <br />
@@ -45,111 +98,12 @@ export default function Profile() {
           </p>
 
           <div className="data-table">
-            <div className="data-row" style={{ borderTop: 'none' }}>
-              <span className="data-label">CONTACT</span>
-              <div className="data-value-group" style={{ display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'flex-end' }}>
-                <a
-                  href="mailto:vedantabandyopadhyay@gmail.com"
-                  className="tech-link"
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    textTransform: 'lowercase',
-                    fontSize: '0.95rem',
-                  }}
-                >
-                  <FiMail size={16} />
-                  vedantabandyopadhyay@gmail.com
-                </a>
-                <a
-                  href="tel:+919038101994"
-                  className="tech-link"
-                  style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.95rem' }}
-                >
-                  <FiPhone size={16} />
-                  +91 90381 01994
-                </a>
-                <div style={{ display: 'flex', gap: 10, marginTop: 6 }}>
-                  <a
-                    href="https://www.linkedin.com/in/vedantabandyopadhyay/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="social-icon-link"
-                    aria-label="LinkedIn"
-                    title="LinkedIn"
-                  >
-                    <FaLinkedin size={17} />
-                  </a>
-                  <a
-                    href="https://github.com/PandaDsgn"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="social-icon-link"
-                    aria-label="GitHub"
-                    title="GitHub"
-                  >
-                    <SiGithub size={16} />
-                  </a>
-                  <a
-                    href="https://www.behance.net/panda_designz"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="social-icon-link"
-                    aria-label="Behance"
-                    title="Behance"
-                  >
-                    <SiBehance size={16} />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/panda._.designz"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="social-icon-link"
-                    aria-label="Instagram"
-                    title="Instagram"
-                  >
-                    <SiInstagram size={16} />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="data-table">
-            <div className="data-row" style={{ borderTop: 'none' }}>
-              <span className="data-label">BACHELOR'S</span>
-              <div className="data-value-group">
-                <span className="data-value">INSTITUTE OF ENGINEERING AND MANAGEMENT</span>
-                <span className="data-sub-value">
-                  Major | <span style={{ color: 'var(--text)' }}>Electronics and Communication Engineering</span>
-                  <br />
-                  Minor | <span style={{ color: 'var(--text)' }}>Computer Science Engineering (Internet of Things)</span>
-                  <br />
-                  Expected 2027 <span className="sep">|</span> CGPA: <span style={{ color: 'var(--text)' }}>8.86</span>
-                </span>
-              </div>
-            </div>
-
-            <div className="data-row" style={{ borderTop: 'none' }}>
-              <span className="data-label">HIGHER SECONDARY</span>
-              <div className="data-value-group">
-                <span className="data-value">RAM MOHAN MISSION HIGH SCHOOL (ISC)</span>
-                <span className="data-sub-value">73.2%</span>
-              </div>
-            </div>
-
-            <div className="data-row" style={{ borderTop: 'none' }}>
-              <span className="data-label">SECONDARY</span>
-              <div className="data-value-group">
-                <span className="data-value">RAM MOHAN MISSION HIGH SCHOOL (ICSE)</span>
-                <span className="data-sub-value">94.5%</span>
-              </div>
-            </div>
-
-            <div className="data-row" style={{ borderTop: 'none' }}>
+            <div className="data-row" style={{ borderTop: 'none', alignItems: 'center' }}>
               <span className="data-label">RESUME</span>
-              <div className="data-value-group">
+              <span style={{ flex: 1, textAlign: 'center', color: 'var(--blue)', fontWeight: 900 }}>
+                Learn more about me professionally
+              </span>
+              <div className="data-value-group" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
                 <a
                   href="assets/resume.pdf"
                   target="_blank"
@@ -165,6 +119,6 @@ export default function Profile() {
           </div>
         </div>
       </div>
-    </PageShell>
+    </section>
   )
 }
