@@ -25,6 +25,7 @@ import {
   SiArduino,
   SiRaspberrypi,
   SiNvidia,
+  SiEspressif,
   SiKicad,
   SiLtspice,
   SiAnsys,
@@ -122,11 +123,12 @@ const GROUPS = [
   },
   {
     id: '07',
-    title: 'EMBEDDED, IoT and Circuitry',
+    title: 'EMBEDDED and IoT',
     items: [
       { name: 'Arduino', icon: SiArduino, color: '#00878F' },
       { name: 'Raspberry Pi', icon: SiRaspberrypi, color: '#A22846' },
       { name: 'Jetson', icon: SiNvidia, color: '#76B900' },
+      { name: 'ESP32', icon: SiEspressif, color: '#E7352C' },
     ],
   },
   {
