@@ -489,6 +489,12 @@ nav {
 .resume-row {
     align-items: center;
 }
+.resume-row .data-label {
+    /* .data-label defaults to align-self: flex-start globally so numerals
+       stay pinned to the top of taller blocks, but this row is short and
+       single-line — center it with the text/thumbnail instead. */
+    align-self: center;
+}
 .resume-row-text {
     flex: 1;
     text-align: center;
