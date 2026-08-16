@@ -337,7 +337,7 @@ export default function Experience() {
                 <div className="data-value-group" style={{ textAlign: 'left', marginLeft: 0, flexGrow: 1 }}>
                   {l.orgLogo ? (
                     <div className="job-row-with-logo">
-                      <span className="job-org-logo-badge sm">
+                      <span className="job-org-logo-badge">
                         <img src={l.orgLogo} alt="" className="job-org-logo" />
                       </span>
                       <div className="project-divider"></div>

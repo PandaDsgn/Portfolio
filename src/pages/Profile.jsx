@@ -98,11 +98,9 @@ export default function Profile() {
           </p>
 
           <div className="data-table">
-            <div className="data-row" style={{ borderTop: 'none', alignItems: 'center' }}>
+            <div className="data-row resume-row">
               <span className="data-label">RESUME</span>
-              <span style={{ flex: 1, textAlign: 'center', color: 'var(--blue)', fontWeight: 900 }}>
-                Learn more about me professionally
-              </span>
+              <span className="resume-row-text">Learn more about me professionally</span>
               <div className="data-value-group" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
                 <a
                   href="assets/resume.pdf"

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { FiMenu, FiX } from 'react-icons/fi'
 
 const TABS = [
   { label: 'PROFILE', id: 'profile' },
@@ -9,6 +10,7 @@ const TABS = [
 
 export default function NavBar() {
   const [activeId, setActiveId] = useState(null)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const sections = TABS.map((tab) => document.getElementById(tab.id)).filter(Boolean)
@@ -29,33 +31,69 @@ export default function NavBar() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   function handleHomeClick(e) {
     e.preventDefault()
+    setMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   function handleTabClick(e, id) {
     e.preventDefault()
+    setMenuOpen(false)
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <nav>
-      <a href="#" className="nav-btn back-link" onClick={handleHomeClick}>
-        HOME
-      </a>
-      <div className="nav-tabs">
+    <>
+      <nav>
+        <a href="#" className="nav-btn back-link" onClick={handleHomeClick}>
+          HOME
+        </a>
+        <div className="nav-tabs">
+          {TABS.map((tab) => (
+            <a
+              key={tab.id}
+              href={`#${tab.id}`}
+              className={`nav-tab${activeId === tab.id ? ' active' : ''}`}
+              onClick={(e) => handleTabClick(e, tab.id)}
+            >
+              {tab.label}
+            </a>
+          ))}
+        </div>
+        <button
+          type="button"
+          className="nav-menu-toggle"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+        </button>
+      </nav>
+
+      <div className={`nav-mobile-menu${menuOpen ? ' open' : ''}`}>
+        <a href="#" className="nav-mobile-link" onClick={handleHomeClick}>
+          HOME
+        </a>
         {TABS.map((tab) => (
           <a
             key={tab.id}
             href={`#${tab.id}`}
-            className={`nav-tab${activeId === tab.id ? ' active' : ''}`}
+            className={`nav-mobile-link${activeId === tab.id ? ' active' : ''}`}
             onClick={(e) => handleTabClick(e, tab.id)}
           >
             {tab.label}
           </a>
         ))}
       </div>
-    </nav>
+    </>
   )
 }
