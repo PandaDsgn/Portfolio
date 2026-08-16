@@ -170,10 +170,8 @@ export default function Skillsets() {
         <div className="profile-intel">
           {GROUPS.map((group) => (
             <div className="data-table" key={group.id}>
-              <div className="data-row" style={{ alignItems: 'flex-start' }}>
-                <span className="data-label" style={{ alignSelf: 'flex-start' }}>
-                  {group.id}
-                </span>
+              <div className="data-row">
+                <span className="data-label">{group.id}</span>
                 <div className="data-value-group" style={{ textAlign: 'left', marginLeft: 0, flexGrow: 1 }}>
                   <span className="data-value">{group.title}</span>
                   <SkillList items={group.items} />

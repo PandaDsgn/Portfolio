@@ -404,7 +404,7 @@ nav {
     color: var(--gray);
     flex-shrink: 0;
     margin-right: 40px;
-    align-self: center;
+    align-self: flex-start;
     font-variant-numeric: tabular-nums;
 }
 .data-value-group {
