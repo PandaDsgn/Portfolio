@@ -312,15 +312,15 @@ export default function Experience() {
       <PageHeader text="EXPERIENCE" />
       <div className="bold-profile-grid" style={{ gridTemplateColumns: '1fr' }}>
         <div className="profile-intel">
-          <p className="section-heading">PROFESSIONAL EXPERIENCE</p>
+          <p className="section-heading">Professional Experience</p>
           {JOBS.map((job) => (
             <JobRow job={job} key={job.id} />
           ))}
 
-          <p className="section-heading">INTERNSHIPS</p>
+          <p className="section-heading">Internships</p>
           <JobRow job={INTERNSHIP} />
 
-          <p className="section-heading">CERTIFICATIONS</p>
+          <p className="section-heading">Certifications</p>
           {CERTIFICATIONS.reduce((rows, cert, i) => {
             if (i % 2 === 0) rows.push([cert])
             else rows[rows.length - 1].push(cert)
@@ -329,7 +329,7 @@ export default function Experience() {
             <CertPairRow pair={pair} key={i} />
           ))}
 
-          <p className="section-heading">LEADERSHIP & EXTRACURRICULAR</p>
+          <p className="section-heading">Leadership & Extracurricular</p>
           {LEADERSHIP.map((l) => (
             <div className="data-table" key={l.id}>
               <div className="data-row" style={{ borderTop: 'none' }}>

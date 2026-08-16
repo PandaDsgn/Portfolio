@@ -90,7 +90,7 @@ export default function Projects() {
       <PageHeader text="PROJECTS & PUBLICATIONS" />
       <div className="bold-profile-grid" style={{ gridTemplateColumns: '1fr' }}>
         <div className="profile-intel">
-          <p className="section-heading">PROJECTS</p>
+          <p className="section-heading">Projects</p>
           {PROJECTS.map((p) => (
             <div className="data-table" key={p.id}>
               <div className="data-row" style={{ borderTop: 'none' }}>
@@ -148,7 +148,7 @@ export default function Projects() {
             </div>
           ))}
 
-          <p className="section-heading">PUBLICATIONS</p>
+          <p className="section-heading">Publications</p>
           {PUBLICATIONS.map((pub) => (
             <div className="data-table" key={pub.id}>
               <div className="data-row" style={{ borderTop: 'none' }}>
