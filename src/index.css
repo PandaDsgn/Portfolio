@@ -101,18 +101,28 @@ body {
     border-top: none;
 }
 
-/* --- NAVIGATION --- */
+/* --- NAVIGATION ---
+   Solid backdrop, not mix-blend-mode: the page is one continuous scroll now
+   (not a nav floating over a single static hero), so the nav has to stay
+   legible over whatever content happens to be scrolled underneath it. */
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 40px 5%;
+    padding: 24px 5%;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
-    mix-blend-mode: exclusion;
+    background: var(--black);
+    border-bottom: 1px solid var(--line);
     align-items: center;
     gap: 20px;
+}
+@media (max-width: 700px) {
+    nav {
+        padding: 16px 5%;
+        gap: 10px;
+    }
 }
 
 /* --- UNIFIED ACCESS BUTTONS --- */
@@ -134,6 +144,12 @@ nav {
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
+}
+@media (max-width: 700px) {
+    .nav-btn {
+        padding: 8px 14px;
+        font-size: 0.75rem;
+    }
 }
 
 /* INTERACTION STATES */
