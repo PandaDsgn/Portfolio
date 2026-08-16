@@ -124,10 +124,9 @@ const GROUPS = [
     id: '07',
     title: 'EMBEDDED, IoT and Circuitry',
     items: [
-      { name: 'KiCAD', icon: SiKicad, color: '#314CB0' },
-      { name: 'Cadence Virtuoso', image: 'assets/logos/cadence.svg' },
-      { name: 'LTSpice', icon: SiLtspice, color: '#900028' },
-      { name: 'MATLAB', image: 'assets/logos/matlab.svg' },
+      { name: 'Arduino', icon: SiArduino, color: '#00878F' },
+      { name: 'Raspberry Pi', icon: SiRaspberrypi, color: '#A22846' },
+      { name: 'Jetson', icon: SiNvidia, color: '#76B900' },
     ],
   },
   {
