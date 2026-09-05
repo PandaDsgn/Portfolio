@@ -7,16 +7,17 @@ const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 const PROJECTS = [
   {
     id: '01',
-    title: 'CODEJUDGE',
-    subtitle: 'Browser-Based Coding Classroom & Auto-Grading Platform',
+    title: 'HONORROLL',
+    subtitle: 'One Stop Full Scale Insitutional Management System',
     date: "JUL '26",
-    link: 'pandadsgn.github.io/CodeJudge/',
-    image: 'assets/HomePages/CodeJudge.png',
+    link: 'pandadsgn.github.io/HonorRoll/',
+    image: 'assets/HomePages/HonorRoll.png',
     bullets: [
-      'A Dockerized, multi-language (Python/C/C++/Java) code-execution sandbox with ulimit-capped resources and privilege-dropped execution, giving tuition students without personal computers a secure browser-based IDE to write and run code from any device.',
-      'Uses a PostgreSQL-backed assignment judge with deadline-gated access, hidden test cases, and LeetCode-style verdicts, plus JWT/RBAC auth and automated student onboarding via a Google Form webhook and Resend transactional email.',
+      'A multi-tenant LMS and assessment platform (React web + React Native/Expo mobile) spanning student, teacher, admin, and superadmin roles, with per-organization structure for departments, subjects, rosters, billing, and branding.',
+      'Runs a sandboxed code judge (child_process -> unprivileged OS user -> ulimit-capped execution, no Docker) across 10 languages with per-testcase verdicts, alongside scan-mode grading that captures paper answers via live edge-detection and grades them through deferred OCR.',
+      'Features real-time webcam exam proctoring via on-device computer vision (MediaPipe: face-absence -> multi-face -> gaze/head-turn -> phone/speech detection) with browser lockdown, plus cross-org superadmin tooling (platform-wide audit logs, scoped admin impersonation via org-override headers).',
     ],
-    tech: 'React, Node.js, Express.js, PostgreSQL, Docker, JWT, Resend, Render, GitHub Page',
+    tech: 'React, React Native/Expo, Node.js, Express.js, PostgreSQL, MediaPipe, JWT, Resend, Render, GitHub Pages',
 
   },
   {
@@ -27,9 +28,9 @@ const PROJECTS = [
     link: 'pandadsgn.github.io/Infrastructure-Assassin-Production/',
     image: 'assets/HomePages/InfrastructureAssassin.png',
     bullets: [
-      'A multi-tier, RBAC-governed platform using PostgreSQL for persistent telemetry and Redis for session caching, with LISTEN/NOTIFY pub-sub over Server-Sent Events for real-time dashboard updates.',
-      'Sports a cascaded LLM pipeline (Gemini -> Ollama -> Grok -> Fallback NLP using data on DB) for automated threat analysis, Firebase Authentication, and a shipped CI/CD to a multi-instance Render backend + GitHub Pages frontend.',
-    ],
+      'A multi-tenant LMS and assessment platform (React web + React Native/Expo mobile) spanning student, teacher, admin, and superadmin roles, with per-organization structure for departments, subjects, rosters, billing, and branding.',
+      'Runs a sandboxed code judge (child_process -> unprivileged OS user -> ulimit-capped execution, no Docker) across 10 languages with per-testcase verdicts, alongside scan-mode grading that captures paper answers via live edge-detection and grades them through deferred OCR.',
+      'Features real-time webcam exam proctoring via on-device computer vision (MediaPipe: face-absence -> multi-face -> gaze/head-turn -> phone/speech detection) with browser lockdown, plus cross-org superadmin tooling (platform-wide audit logs, scoped admin impersonation via org-override headers).',],
     tech: 'React, Node.js, PostgreSQL, Redis, Firebase, Gemini API, CI/CD, Render, GitHub Pages',
   },
   {
