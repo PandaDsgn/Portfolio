@@ -28,10 +28,11 @@ const PROJECTS = [
     link: 'pandadsgn.github.io/Infrastructure-Assassin-Production/',
     image: 'assets/HomePages/InfrastructureAssassin.png',
     bullets: [
-      'A multi-tenant LMS and assessment platform (React web + React Native/Expo mobile) spanning student, teacher, admin, and superadmin roles, with per-organization structure for departments, subjects, rosters, billing, and branding.',
-      'Runs a sandboxed code judge (child_process -> unprivileged OS user -> ulimit-capped execution, no Docker) across 10 languages with per-testcase verdicts, alongside scan-mode grading that captures paper answers via live edge-detection and grades them through deferred OCR.',
-      'Features real-time webcam exam proctoring via on-device computer vision (MediaPipe: face-absence -> multi-face -> gaze/head-turn -> phone/speech detection) with browser lockdown, plus cross-org superadmin tooling (platform-wide audit logs, scoped admin impersonation via org-override headers).',],
-    tech: 'React, Node.js, PostgreSQL, Redis, Firebase, Gemini API, CI/CD, Render, GitHub Pages',
+      'A cloud security and cost-governance dashboard (React/Vite frontend, FastAPI backend) with Firebase-authenticated RBAC: Junior-Developers submit resource actions while IT-Directors approve them through a pending-approval queue, with every change broadcast to connected clients over Server-Sent Events.',
+      'Runs a multi-tier AI waterfall (Gemini -> Groq -> DeepSeek) to classify cloud resources as keep, update, quarantine, or terminate, falling back to a deterministic local heuristics engine so triage keeps running through any API outage.',
+      'Persists resource state and a full audit trail in PostgreSQL behind an IP-based rate limiter, tracking idle servers, unlicensed SaaS, and flagged malicious assets through to automated quarantine or termination.',
+    ],
+    tech: 'React, Vite, Python, FastAPI, PostgreSQL, Redis, Firebase, Gemini API, Groq, DeepSeek, Render, GitHub Pages',
   },
   {
     id: '03',
