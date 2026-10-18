@@ -4,8 +4,8 @@ import { FiMenu, FiX } from 'react-icons/fi'
 const TABS = [
   { label: 'PROFILE', id: 'profile' },
   { label: 'EXPERIENCE', id: 'experience' },
-  { label: 'SKILLSETS', id: 'skillsets' },
   { label: 'PROJECTS', id: 'projects' },
+  { label: 'SKILLSETS', id: 'skillsets' },
 ]
 
 export default function NavBar() {

@@ -1,3 +1,4 @@
+import { SiGithub } from 'react-icons/si'
 import PageHeader from '../components/PageHeader.jsx'
 
 // Resolves against Vite's base path so links work both on localhost (base "/")
@@ -7,10 +8,25 @@ const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 const PROJECTS = [
   {
     id: '01',
+    title: 'IDLE-SERVICE-KILLER',
+    subtitle: 'Idle Active Proccess Killer',
+    date: "OCT '26",
+    link: 'https://www.mediafire.com/file/dcr786x0qqox2ox/IdleServiceKiller_installer.zip/file',
+    github: 'https://github.com/PandaDsgn/IdleServiceKiller',
+    image: 'assets/HomePages/IdleServiceKiller.jpeg',
+    bullets: [
+      'An always-on highly memory efficient service that kills active third party processes on Windows to free up CPU and RAM.'
+    ],
+    tech: 'Rust, Bash, Powershell',
+
+  },
+  {
+    id: '02',
     title: 'HONORROLL',
     subtitle: 'One Stop Full Scale Insitutional Management System',
     date: "JUL '26",
-    link: 'pandadsgn.github.io/HonorRoll/',
+    link: 'https://pandadsgn.github.io/HonorRoll/',
+    github: 'https://github.com/PandaDsgn/HonorRoll',
     image: 'assets/HomePages/HonorRoll.png',
     bullets: [
       'A multi-tenant LMS and assessment platform (React web + React Native/Expo mobile) spanning student, teacher, admin, and superadmin roles, with per-organization structure for departments, subjects, rosters, billing, and branding.',
@@ -21,11 +37,12 @@ const PROJECTS = [
 
   },
   {
-    id: '02',
+    id: '03',
     title: 'INFRASTRUCTURE-ASSASSIN',
     subtitle: 'AI-Driven Infrastructure Testing & Resilience Suite',
     date: "JUL '26",
-    link: 'pandadsgn.github.io/Infrastructure-Assassin-Production/',
+    link: 'https://pandadsgn.github.io/Infrastructure-Assassin-Production/',
+    github: 'https://github.com/PandaDsgn/Infrastructure-Assassin-Production',
     image: 'assets/HomePages/InfrastructureAssassin.png',
     bullets: [
       'A cloud security and cost-governance dashboard (React/Vite frontend, FastAPI backend) with Firebase-authenticated RBAC: Junior-Developers submit resource actions while IT-Directors approve them through a pending-approval queue, with every change broadcast to connected clients over Server-Sent Events.',
@@ -35,11 +52,12 @@ const PROJECTS = [
     tech: 'React, Vite, Python, FastAPI, PostgreSQL, Redis, Firebase, Gemini API, Groq, DeepSeek, Render, GitHub Pages',
   },
   {
-    id: '03',
+    id: '04',
     title: 'Restro-cafe',
     subtitle: 'Full Stack Restaurant Management System',
     date: "JUN '26",
-    link: 'pandadsgn.github.io/restro-cafe/',
+    link: 'https://pandadsgn.github.io/restro-cafe/',
+    github: 'https://github.com/PandaDsgn/restro-cafe',
     image: 'assets/HomePages/RestroCafe.png',
     bullets: [
       'Designed a full-stack restaurant management system with a React frontend and Node.js backend, including a RESTful API and database schema.',
@@ -48,11 +66,12 @@ const PROJECTS = [
     tech: 'Node.js, React, Render, Git/GitHub, Firebase',
   },
   {
-    id: '04',
+    id: '05',
     title: 'OCCUNOVA',
     subtitle: 'Deep Learning Diagnostic System for Glaucoma Detection',
     date: "JUN '26",
-    link: 'pandadsgn.github.io/OccuNova/',
+    link: 'https://pandadsgn.github.io/OccuNova/',
+    github: 'https://github.com/PandaDsgn/OccuNova',
     image: 'assets/HomePages/OccuNova.png',
     bullets: [
       'A cascaded ResNet50 computer-vision pipeline with an UNet cropping to isolate optic-nerve regions from retinal fundus scans. The dual layer allows for more accurate detections.',
@@ -61,11 +80,12 @@ const PROJECTS = [
     tech: 'Python, CNNs, Computer Vision, Node.js, React, Git/GitHub',
   },
   {
-    id: '05',
+    id: '06',
     title: 'AGRO-GUARD',
     subtitle: 'IoT Crop & Grain-Silo Monitoring System',
     date: "FEB '26",
-    link: 'pandadsgn.github.io/Agro-Guard/',
+    link: 'https://pandadsgn.github.io/Agro-Guard/',
+    github: 'https://github.com/PandaDsgn/Agro-Guard',
     image: 'assets/HomePages/AgroGuard.png',
     bullets: [
       'An Arduino-based sensor pipeline (DHT11, HC-SR04, LDR) for continuous environmental telemetry capture and threat detction in agricultural silos.',
@@ -100,7 +120,7 @@ export default function Projects() {
                 <div className="data-value-group" style={{ textAlign: 'left', marginLeft: 0, flexGrow: 1 }}>
                   <div className="project-row">
                     <a
-                      href={`https://${p.link}`}
+                      href={p.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="project-thumb-link"
@@ -142,6 +162,16 @@ export default function Projects() {
                           </span>
                         ))}
                         <span style={{ display: 'block', marginTop: 10 }}>Tech: {p.tech}</span>
+                        <a
+                          href={p.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-github-link"
+                          aria-label={`${p.title} on GitHub`}
+                        >
+                          <SiGithub size={16} />
+                          <span>GITHUB ↗</span>
+                        </a>
                       </span>
                     </div>
                   </div>

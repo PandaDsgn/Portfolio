@@ -102,8 +102,8 @@ export default function Home() {
         <div className="project-container" style={{ paddingTop: '15vh' }}>
           <Profile />
           <Experience />
-          <Skillsets />
           <Projects />
+          <Skillsets />
         </div>
       </main>
     </>
