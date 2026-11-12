@@ -682,35 +682,6 @@ nav {
     }
 }
 
-/* --- RESUME PREVIEW LINK (same size as certificate previews) --- */
-.resume-thumb-link {
-    position: relative;
-    display: inline-block;
-    width: 180px;
-    flex-shrink: 0;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    transition: border-color 0.2s ease;
-}
-.resume-thumb-link:hover {
-    border-color: var(--blue);
-}
-.resume-thumb-link:hover .cert-thumb-overlay {
-    opacity: 1;
-}
-.resume-thumb {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-    transition: transform 0.35s ease;
-}
-.resume-thumb-link:hover .resume-thumb {
-    transform: scale(1.08);
-}
-
 /* --- SKILL CHIPS --- */
 .skill-chip-list {
     display: flex;

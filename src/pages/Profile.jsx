@@ -1,5 +1,5 @@
 import PageHeader from '../components/PageHeader.jsx'
-import { FiMapPin, FiMail, FiPhone } from 'react-icons/fi'
+import { FiMapPin, FiMail, FiPhone, FiFileText } from 'react-icons/fi'
 import { FaLinkedin } from 'react-icons/fa6'
 import { SiGithub, SiBehance, SiInstagram } from 'react-icons/si'
 
@@ -106,11 +106,11 @@ export default function Profile() {
                   href="assets/resume.pdf"
                   target="_blank"
                   rel="noreferrer"
-                  className="resume-thumb-link"
-                  aria-label="View compiled resume"
+                  className="tech-link"
+                  style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.85rem', letterSpacing: 1 }}
                 >
-                  <img src="assets/CertPreviews/Resume.png" alt="Resume preview" className="resume-thumb" />
-                  <span className="cert-thumb-overlay">VIEW ↗</span>
+                  <FiFileText size={18} />
+                  VIEW ↗
                 </a>
               </div>
             </div>
